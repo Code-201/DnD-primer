@@ -2,6 +2,7 @@
 
 Dungeons and Dragons Primer Web Application
 
+
 ### User Story
 
 As a user, I want the ability to create my own character with either custom stats or pre-designated ones
@@ -21,3 +22,9 @@ Acceptance Tests:
 + At least threes statistics  are available.
 + A picture of the users character is displayed.
 + Characters are able to be saved and recalled when transitioning between pages.
+
+## Author(s): 
++ Kjell Overholt
++ Mariko Alvarado
++ Ricardo Barcenas
++ JP Jones
