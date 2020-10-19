@@ -9,6 +9,7 @@ Dungeons and Dragons Primer Web Application
 ## Wire Frames
 
 ![Win-Lose](readme_support/Wireframe_win-lose.png)
+![Scenario](readme_support/wireframe-scenario.png)
 ![Character Creation](readme_support/Wireframe_character.png)
 ![Landing Page](readme_support/Wireframe_landingPage.png)
 
