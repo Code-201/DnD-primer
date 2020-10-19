@@ -1,5 +1,7 @@
 # Software Requirements
+
 ## Vision
+
 Minimum Length: 3-5 sentences
 
 **What is the vision of this product?**
@@ -12,7 +14,7 @@ A lot of people interested in playing Dnd don't know where to start. Our app wil
 
 **Why should we care about your product?**
 
-DnD is fun and it encourages creativity, especially during a time where many are kept inside due to the pandemic. DnD is a great team building excercise and allows for online socializing during unprecidented times. These reasons make it even more important for the DnD community to be made more accessible to those who might not have the resources.
+DnD is fun and it encourages creativity, especially during a time where many are kept inside due to the pandemic. DnD is a great team building exercise and allows for online socializing during unprecedented times. These reasons make it even more important for the DnD community to be made more accessible to those who might not have the resources.
 
 ## Scope (In/Out)
 
@@ -38,7 +40,6 @@ DnD is fun and it encourages creativity, especially during a time where many are
 
 - Users will be directed to navigate through a town, find themselves at a weapons shop and will be able to select their weapons of choice. As they do, so they will get to see how the game functions and be exposed to several kinds of game mechanics.
 
-
 **OUT - What will your product not do.**
 
 - Our product will not give players a substitute for an actual gaming experience.
@@ -47,18 +48,17 @@ DnD is fun and it encourages creativity, especially during a time where many are
 
 - Players will not have full access to all information available in the player's handbook.
 
-
 **Minimum Viable Product vs**
 
 What will your MVP functionality be?
 
 Three pages:
+
 - Landing page with introduction and navigation to next pages.
 
 - Character creation page with example character sheet, selectable attributes and ability to randomly select stats.
 
 - Scenario page with information and prompt for action from a given list of choices and ability to randomly determine outcomes.
-
 
 **Stretch**
 
@@ -75,25 +75,33 @@ What stretch goals are you going to aim for?
 - Author easter eggs 
 
 ## Functional Requirements
-List the functionality of your product. This will consist of tasks such as the following:
 
-An admin can create and delete user accounts
-A user can update their profile information
-A user can search all of the products in the inventory
-Data Flow
-Describe the flow of data in your application. Write out what happens from the time the user begins using the app to the time the user is done with the app. Think about the “Happy Path” of the application. Describe through visuals and text what requests are made, and what data is processed, in addition to any other details about how the user moves through the site.
+- User can create or delete character
 
-Non-Functional Requirements (301 & 401 only)
-Non-functional requirements are requirements that are not directly related to the functionality of the application but still important to the app.
+- Store/Recall character data in local storage
 
-Examples include:
+- User input to advance through scenario
 
-Security
-Usability
-Testability
-etc….
-Pick 2 non-functional requirements and describe their functionality in your application.
+## Data Flow
 
-If you are stuck on what non-functional requirements are, do a quick online search and do some research. Write a minimum of 3-5 sentences to describe how the non-functional requirements fits into your app.
+1. User arrives at webpage.  Receives an introduction to the site.
 
-You MUST describe what the non-functional requirement is and how it will be implemented. Simply saying “Our project will be testable for testibility” is NOT acceptable. Tell us how, why, and what.
+1. User determines whether to **create** or a **local stored** character.
+
+1. If **create** a character - navigate to character creation page.
+
+1. if **local stored** proceed directly to *scenario* page.
+
+1. **create** user selects: *Race* and *Type*.  Rolls for stats (6 total stats)
+
+1. **scenario** user begins scenario in a town and tasked with slaying a ***Dragon***.  User goes to a weapons store and armor store
+
+1. selects from options available at each store.
+
+1. Encounters ***Dragon*** and begins battle
+
+1. Player completes battle **wins** or **loses**.  Character info saved.
+
+1. If **win** a victory page/popup.  Then return to landing page
+
+1. If **lose** a lose page/popup.  Return to landing page or restart battle.
