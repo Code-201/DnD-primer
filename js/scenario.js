@@ -4,24 +4,29 @@ function rollDice(max){
   return Math.floor(Math.random() * (max - 1 + 1) + 1);
 }
 
+//Global variables for each section
 var questStartSection = document.getElementById('questStart');
 var blackSmithSection = document.getElementById('blacksmith');
 var dragonSection = document.getElementById('dragon');
+//Arrays with text for each section
 var questStartTextArray = ['this is text'];
+//Array to hold most recent die roll
+var roll20Result = 0;
 
-
+//Retrieve Character information from local storage
 var characterFromLocalStorage = localStorage.getItem('character');
 var parsedCharacter = JSON.parse(characterFromLocalStorage);
-var userCharacter = new Character(parsedCharacter[0], 100);
+//Re run character information through constructor
+var userCharacter = new Character(parsedCharacter[0]);
 
 
 //calculates the users roll based on the randomly generated number
-function calcRoll(stat, die, prof){ //stat: array index of the modifier we need, die: max for rollDice function, prof: name of skill used
-  var baseRoll = rollDice(die);
-  var withMod = baseRoll + Character.modArray[stat];
+function calcRoll(stat, dieRoll, prof){ //stat: array index of the modifier we need, die: max for rollDice function, prof: name of skill used
+  var baseRoll = dieRoll;
+  var withMod = baseRoll + userCharacter.modArray[stat];
 
-  for(var i = 0; i < Character.proficiencyArray.length; i++){
-    if(prof === Character.proficiencyArray[i]){
+  for(var i = 0; i < userCharacter.proficiencyArray.length; i++){
+    if(prof === userCharacter.proficiencyArray[i]){
       var profBool = true;
     }
   }
@@ -33,6 +38,34 @@ function calcRoll(stat, die, prof){ //stat: array index of the modifier we need,
   return finalRoll;
 }
 
+//event listeners
+document.getElementById('D20').addEventListener('click', handleD20);
+document.getElementById('D10').addEventListener('click', handleD10);
+document.getElementById('D8').addEventListener('click', handleD8);
 
+//renders the entire questStart section
+function renderQuestStart(){
+
+}
+
+// renders the DM box div of the quest start section
+function renderQuestStartDMBox(){
+  //tracks how many lines of dialogue have been displayed
+  var buttonClickTracker = 0;
+  //grabs section and appends p element
+  var base = document.getElementById('questStartDMBox');
+  var text = document.createElement('p');
+  //fills text element with text from array
+  text.textContent(questStartTextArray[buttonClickTracker]);
+  //append text to element
+  base.appendChild(text);
+  //increments variable
+  buttonClickTracker++;
+}
+
+function handleD20(){
+  var randomNumber = rollDice(20);
+  roll20Result = randomNumber;
+}
 
 
