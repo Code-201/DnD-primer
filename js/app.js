@@ -58,12 +58,13 @@ function retrieveCharacter(storageKey = 'character') { //Normally 'character'
   if (characterFromLocalStorage) {
     player = rebuildInstanceForObjLiteral(JSON.parse(characterFromLocalStorage));
     console.log('player: ' + player.name);
-  } else {
-    //Re run character information through constructor
-    player = new Character(parsedCharacter[0].name, parsedCharacter.hitPoints);
-    //TODO: What to do if it can't find the object data in storage
+    // } else {
+    //   //Re run character information through constructor
+    //   player = new Character(parsedCharacter[0].name, parsedCharacter.hitPoints);
+    //   //TODO: What to do if it can't find the object data in storage
   }
 }
+
 
 
 function saveCharacter(charObj, storageKey = 'character') {
