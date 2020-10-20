@@ -22,15 +22,7 @@ function rollDice(sides) {
 
 }
 
-Character.prototype.modifierCalc = function () {
-
-  for (var i = 0; i < this.statArray.length; i++) {
-    this.modArray[i] = (this.statArray[i] - 10) / 2;
-
-  }
-  console.log(this.modArray);
-};
-
+// TO-DO: USE FOUR DICE AND DROP LOWEST NUMBER
 Character.prototype.generateStats = function () {
   for (var i = 0; i < this.statArray.length; i++) {
     var diceValue = [rollDice(6), rollDice(6), rollDice(6)];
@@ -49,6 +41,17 @@ Character.prototype.generateStats = function () {
   }
   console.log(this.statArray);
 };
+
+Character.prototype.modifierCalc = function () {
+
+  for (var i = 0; i < this.statArray.length; i++) {
+    this.modArray[i] = Math.floor((this.statArray[i] - 10) / 2);
+
+  }
+  console.log(this.modArray);
+};
+
+
 var player = new Character('bob', 100);
 player.generateStats();
 player.modifierCalc();
