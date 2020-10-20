@@ -20,7 +20,7 @@ function Character(name, hitPoints = 100) {
 
 Character.prototype.generateStats = function () {
   for (var i = 0; i < this.statArray.length; i++) {
-    var diceValue = [rollDice(6), rollDice(6), rollDice(6)];
+    var diceValue = [diceValue(6), diceValue(6), diceValue(6)];
 
     // var diceValue = rollDice();
     console.log(diceValue);
@@ -46,7 +46,7 @@ Character.prototype.modifierCalc = function () {
   console.log(this.modArray);
 };
 
-function rollDice(sides) {
+function diceValue(sides) {
   return Math.floor((Math.random() * sides)) + 1;
 
 }
@@ -64,6 +64,7 @@ function retrieveCharacter(storageKey = 'character') { //Normally 'character'
     //TODO: What to do if it can't find the object data in storage
   }
 }
+
 
 function saveCharacter(charObj, storageKey = 'character') {
 

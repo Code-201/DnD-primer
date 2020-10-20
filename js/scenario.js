@@ -22,20 +22,17 @@ var roll20Result = 0;
 // object name is 'player'
 retrieveCharacter();
 
-
 //calculates the users roll based on the randomly generated number
-function calcRoll(stat, dieRoll, prof) { //stat: array index of the modifier we need, die: max for rollDice function, prof: name of skill used
-  var baseRoll = dieRoll;
-  var withMod = baseRoll + userCharacter.modArray[stat];
+function calcRoll(stat, sides, prof) { //stat: array index of the modifier we need, die: max for rollDice function, prof: name of skill used
+  // var baseRoll = dieRoll;
+  var finalRoll;
+  var withMod = diceValue(sides) + player.modArray[stat];
 
-  for (var i = 0; i < userCharacter.proficiencyArray.length; i++) {
-    if (prof === userCharacter.proficiencyArray[i]) {
-      var profBool = true;
-    }
+  if (player.proficiencyArray.includes(prof)) {
+    //profBool = true;
+    finalRoll = withMod + player.proficiencyBonus;
   }
-  if (profBool === true) {
-    var finalRoll = withMod + 2;
-  } else {
+  else {
     finalRoll = withMod;
   }
   return finalRoll;
@@ -67,13 +64,13 @@ function renderQuestStartDMBox() {
 }
 
 function handleD20() {
-  var randomNumber = rollDice(20);
+  var randomNumber = diceValue(20);
   roll20Result = randomNumber;
 }
 
 /// Execution Code <<--Gnarly-->>
 
-console.log('Roll Dice from app.js: ' + rollDice(10));
+console.log('Roll Dice from app.js: ' + diceValue(10));
 console.log('in scenario player: ' + player);
 
 
