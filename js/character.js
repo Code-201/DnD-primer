@@ -2,7 +2,15 @@
 // TO-DO: USE FOUR DICE AND DROP LOWEST NUMBER
 
 var player = new Character('bob', 100);
-player.generateStats();
-player.modifierCalc();
+//player.generateAllStats();
+//player.modifierCalc();
+
+
+
+
+document.getElementById('bob').ch
+
+
+
 saveCharacter(player);
 

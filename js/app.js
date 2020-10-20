@@ -2,14 +2,16 @@
 var player;
 
 function Character(name, hitPoints = 100) {
+  //fighter
   this.name = name;
   this.hitPoints = hitPoints;
   this.race = '';
   this.class = 'warrior';
   this.statArray = [0, 0, 0, 0, 0, 0];
   this.modArray = [0, 0, 0, 0, 0, 0];
+  //this.skillsArray = [0, 0, 0, 0, 0, 0];
   this.proficiencyBonus = 2;
-  this.proficiencyArray = [];
+  this.proficiencyArray = ['intimidate', 'perception', 'str-save', 'con-sav']; //set for Fighter
   this.armor = 8;
   this.weapon = 5;
   this.useTenSided = false;
@@ -18,7 +20,7 @@ function Character(name, hitPoints = 100) {
 
 }
 
-Character.prototype.generateStats = function () {
+Character.prototype.generateAllStats = function () {
   for (var i = 0; i < this.statArray.length; i++) {
     var diceValue = [diceValue(6), diceValue(6), diceValue(6)];
 
