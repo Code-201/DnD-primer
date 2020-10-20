@@ -2,16 +2,6 @@
 
 Dungeons and Dragons Primer Web Application
 
-## Configuration Requirements
-
-[Configuration Requirements](requirements.md)
-
-## Wire Frames
-
-![Win-Lose](readme_support/Wireframe_win-lose.png)
-![Character Creation](readme_support/Wireframe_character.png)
-![Landing Page](readme_support/Wireframe_landingPage.png)
-
 ## User Stories
 
 ### User story 1
@@ -74,6 +64,21 @@ Feature Tasks:
 + a description of what DnD is
 + an overview of playable classes with a description of the objective of the game
 + a button to confirm the user is ready to embark on a journey
+
+## Configuration Requirements
+
+[Configuration Requirements](requirements.md)
+
+## Wire Frames
+
+![Landing Page](readme_support/Wireframe_landingPage.png)
+![Character Creation](readme_support/Wireframe_character.png)
+![Scenario](readme_support/wireframe-scenario.png)
+![Win-Lose](readme_support/Wireframe_win-lose.png)
+
+## Problem Domain
+
+![Problem Domain](readme_support/domain_model.png)
 
 ### Author(s)
 
