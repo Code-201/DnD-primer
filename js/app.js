@@ -1,6 +1,10 @@
 'use strict';
 var player;
 
+function diceValue(sides) {
+  return Math.floor((Math.random() * sides)) + 1;
+
+}
 function Character(name, hitPoints = 100) {
   this.name = name;
   this.hitPoints = hitPoints;
@@ -20,14 +24,15 @@ function Character(name, hitPoints = 100) {
 
 Character.prototype.generateStats = function () {
   for (var i = 0; i < this.statArray.length; i++) {
-    var diceValue = [diceValue(6), diceValue(6), diceValue(6)];
+
+    var diceVal = [diceValue(6), diceValue(6), diceValue(6)];
 
     // var diceValue = rollDice();
-    console.log(diceValue);
+    console.log(diceVal);
 
 
     // Getting sum of numbers
-    var sum = diceValue.reduce(function (a, b) {
+    var sum = diceVal.reduce(function (a, b) {
       return a + b;
     }, 0);
 
@@ -46,10 +51,7 @@ Character.prototype.modifierCalc = function () {
   console.log(this.modArray);
 };
 
-function diceValue(sides) {
-  return Math.floor((Math.random() * sides)) + 1;
 
-}
 
 //Storage Functions
 function retrieveCharacter(storageKey = 'character') { //Normally 'character'
@@ -58,12 +60,13 @@ function retrieveCharacter(storageKey = 'character') { //Normally 'character'
   if (characterFromLocalStorage) {
     player = rebuildInstanceForObjLiteral(JSON.parse(characterFromLocalStorage));
     console.log('player: ' + player.name);
-  } else {
-    //Re run character information through constructor
-    player = new Character(parsedCharacter[0].name, parsedCharacter.hitPoints);
-    //TODO: What to do if it can't find the object data in storage
+    // } else {
+    //   //Re run character information through constructor
+    //   player = new Character(parsedCharacter[0].name, parsedCharacter.hitPoints);
+    //   //TODO: What to do if it can't find the object data in storage
   }
 }
+
 
 
 function saveCharacter(charObj, storageKey = 'character') {
