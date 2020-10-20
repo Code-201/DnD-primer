@@ -1,4 +1,5 @@
 'use strict';
+
 // TO-DO: USE FOUR DICE AND DROP LOWEST NUMBER
 
 var player = new Character('bob', 100);
@@ -8,7 +9,8 @@ var player = new Character('bob', 100);
 
 
 
-document.getElementById('bob').ch
+var childArray = document.getElementById('str').lastChild;
+console.log(childArray);
 
 
 
