@@ -3,6 +3,7 @@
 
 var player = new Character('bob', 100);
 player.generateStats();
+
 player.modifierCalc();
 saveCharacter(player);
 
