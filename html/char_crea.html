@@ -9,7 +9,7 @@
 <body>
   <header>
     <p>Hello <span id=player-name></span> This is the character creation page.</p>
-    <button id="next-button" type="submit">Next</button>
+    <input id="next-button" type="button" value="Next" onclick="handleNext()" />
     <section id="dice-roller">
       <img>
       <h2 id="dice-roll-header"></h2>
@@ -116,8 +116,9 @@
       </div>
     </section>
     <section id="race-class-charGraphic">
-      <div id="characterName">
-      </div>
+
+      <h2 id="characterName"></h2>
+      <h2 id="characterRaceDisplay"></h2>
       <div id="race">
         <h2>Select a Race:</h2>
         <!-- <label for="raceSelect"></label> -->
@@ -126,7 +127,7 @@
           <option value="elf">elf</option>
         </select>
       </div>
-      <div id="class"></div>
+      <h2 id="playerClass"></h2>
       <div id="charGraphic"></div>
     </section>
     <section id="other-attributes">

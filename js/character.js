@@ -33,7 +33,7 @@ function updateSkills(parentId, attribute, listItem, dataString) {
     if (parentElement[i].getAttribute('id') === attribute) {
       // debugger;
       var ulItems = parentElement[i].children;
-      console.log(ulItems);
+
       break;
     }
   }
@@ -60,7 +60,7 @@ function updateEquipment(idTag, equipArray, equipArrayName) {
 }
 
 function handleRolls() {
-
+  if (nextClicks === 0) { doThreeRoll = true; }
   var sumRoll;
   var parentElementHead = document.getElementById('dice-roll-header');
   var parentElement = document.getElementById('dice-value');
@@ -77,27 +77,63 @@ function handleRolls() {
   }
   parentElement.textContent = sumRoll;
   diceRollNumber = sumRoll;
-  console.log(diceRollNumber);
+
   if (nextClicks === 0) { setStats(); }
 }
 
-function handleNext(event) {
-  event.preventDefault();
+function handleNext() {
+
   //nextClicks legend:
   //0: function to handle statBuilding
-  if (nextClicks === 0) { setStats(); }
-  if (nextClicks === 1) { setSavingThrows() }
+  if (nextClicks === 1) { setStats(); }
   //1: function setSavingThrows 
+  if (nextClicks === 2) { setSavingThrows(); }
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
+  if (nextClicks === 3) { setSkills(); }
   //3: function setRaceAndClass
+  if (nextClicks === 4) { raceAndClassDialog(); }
   //4: function setOtherAttributes
+  if (nextClicks === 5) { setOtherAttributes(); }
   //5: function setAttacksAndEquipment
-
+  if (nextClicks === 6) { setAttackAndEquipment(); }
+  //6: Move on to the next Page
+  //if (nextClicks === 6) {loadNextPage}
   //nextClicks++;
 }
+function setAttackAndEquipment() {
+  updateEquipment('equipment', player.equipArray, player.equipArrayName);
+  nextClicks++;
+}
+function raceAndClassDialog() {
+  console.log('Insert the instructions here');
+  nextClicks++;
+}
+function setOtherAttributes() {
+  setRaceAndClass();
+
+  updateStat('other-list', 0, 8);
+  updateStat('other-list', 1, player.modArray[1]);
+  player.speed = 30;
+  updateStat('other-list', 2, player.speed);
+  updateStat('other-list', 3, (10 + player.statArray[2]));
+  updateStat('other-list', 4, player.proficiencyBonus);
+  nextClicks++;
+}
+
+function setRaceAndClass() {
+  var nameHeader = document.getElementById('characterName');
+  nameHeader.textContent = player.name;
+  var raceHeader = document.getElementById('characterRaceDisplay');
+  var playerClass = document.getElementById('playerClass');
+  playerClass.textContent = 'Fighter';
+  player.class = 'Fighter';
+  var raceSelect = getRaceSelection();
+  raceHeader.textContent = raceSelect;
+  player.race = raceSelect;
 
 
 
+}
 
 function setStats() {
   nextButtonDisabled(true);
@@ -119,14 +155,19 @@ function setSkills() {
   //TODO: update using a .includes to search the array for proficiencies to apply.
   var intimidate = document.getElementById('intimidate');
   var perception = document.getElementById('perception');
-  var calcIntimidate = player.statArray[5] + 2;
-  var calcPerception = player.statArray[4] + 2;
-
-
-
+  var calcIntimidate = player.statArray[5] + player.proficiencyBonus;
+  var calcPerception = player.statArray[4] + player.proficiencyBonus;
+  intimidate.textContent = `Intimidate: ${calcIntimidate}`;
+  perception.textContent = `Perception: ${calcPerception}`;
+  nextClicks++;
 }
 
 function setSavingThrows() {
+  for (var i = 0; i < player.statArray.length; i++) {
+    if (i === 0) { updateStat('st-list', i, player.statArray[i] + 2); }
+    else if (i === 2) { updateStat('st-list', i, player.statArray[i] + 2); }
+    else { updateStat('st-list', i, player.statArray[i]); }
+  }
 
   //
 
@@ -159,7 +200,7 @@ function rollButtonDisabled(isDisabled) {
   } else {
     checkButton.disabled = false;
   }
-  console.log(checkButton.disabled);
+
 }
 
 // var diceListener = document.getElementById('button-roller');
