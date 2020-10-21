@@ -1,4 +1,51 @@
+body{
+  max-width: 1000px;
+  margin: auto;
+}
+header{
+  display: grid;
+  grid-template-columns: auto auto;
+  width: auto;
+  max-width: auto;
+}
+
+#dialog-text{
+  height: 200px;
+  border: 3px groove red;
+  width: 870px;
+}
+
+#next-button{
+  grid-column: 1;
+  width: auto;
+  max-width: auto;
+}
+
+#dice-roller{
+  grid-column: 2;
+  grid-row: 1;
+  border: 3px groove red;
+  width: 130px;
+
+}
+
 main{
   display: grid;
-  grid-template-columns: 40px 40px 40px 40px 40px 40px;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: auto auto;
+  
+}
+
+#skills{
+  grid-column: 1;
+  grid-row: 2;
+  
+  /* display: grid;
+  grid-template-columns: auto auto auto auto auto; */
+}
+
+ul > li{
+  border: 3px groove red;
+  size: auto;
+  
 }
