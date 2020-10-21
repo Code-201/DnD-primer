@@ -23,6 +23,7 @@ function Character(name, hitPoints = 100) {
   this.equipment = [100]; // GOLD
   this.equipmentName = ['Gold'];
   this.speed;
+  this.didWin = false;
 
 }
 
