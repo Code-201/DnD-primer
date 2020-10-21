@@ -33,13 +33,8 @@ Character.prototype.generateAllStats = function () {
 
     // var diceValue = rollDice();
     console.log(diceVal);
-
-
     // Getting sum of numbers
-    var sum = diceVal.reduce(function (a, b) {
-      return a + b;
-    }, 0);
-
+    var sum = sumArray(diceVal);
     console.log(sum); // Prints: 15
     this.statArray[i] = sum;
   }
@@ -55,7 +50,12 @@ Character.prototype.modifierCalc = function () {
   console.log(this.modArray);
 };
 
-
+function sumArray(array) {
+  var sum = array.reduce(function (a, b) {
+    return a + b;
+  }, 0);
+  return sum;
+}
 
 //Storage Functions
 function retrieveCharacter(storageKey = 'character') { //Normally 'character'

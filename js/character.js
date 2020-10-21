@@ -5,9 +5,12 @@
 
 var diceRollNumber;
 var useDiceNumber = false;
+var doThreeRoll = false;
+var nextClicks = 0;
+var diceClicks = 0;
 //
 var player = new Character('bob', 100);
-player.generateAllStats();
+//player.generateAllStats();
 
 player.modifierCalc();
 saveCharacter(player);
@@ -30,7 +33,7 @@ function updateSkills(parentId, attribute, listItem, dataString) {
     if (parentElement[i].getAttribute('id') === attribute) {
       // debugger;
       var ulItems = parentElement[i].children;
-      console.log(ulItems);
+
       break;
     }
   }
@@ -56,31 +59,179 @@ function updateEquipment(idTag, equipArray, equipArrayName) {
   }
 }
 
-function handleRolls(event) {
-  event.preventDefault();
-  diceRollNumber = diceValue(6);
-  //function to display the value in the 'dice-roller' area.
-  //write a function to track and update different values with diceRollNumber.
-  // sum of three rolls.
+function handleRolls() {
+  if (nextClicks === 1) { doThreeRoll = true; }
+  var sumRoll;
+  var parentElementHead = document.getElementById('dice-roll-header');
+  var parentElement = document.getElementById('dice-value');
+
+  if (doThreeRoll) {
+    sumRoll = threeDiceRollsSum();
+    parentElementHead.textContent = 'Three Roll Sum';
+
+
+  } else {
+    sumRoll = diceValue(6);
+    parentElementHead.textContent = 'Roll Value';
+
+  }
+  parentElement.textContent = sumRoll;
+  diceRollNumber = sumRoll;
+
+  if (nextClicks === 1) { setStats(); }
 }
 
-// function threeRollsStats (){
-//   var rollArray = [];
-//   while(rollArray.length < 3){
+function handleNext() {
 
-//   }
-// }
+  console.log('next-clicks: ' + nextClicks);
+  //nextClicks legend:
+  if (nextClicks === 0) { forceDiceRoll(); }
+  //0: function to handle statBuilding
+  else if (nextClicks === 1) { setStats(); }
+  //1: function setSavingThrows 
+  else if (nextClicks === 2) { setSavingThrows(); }
+  //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
+  else if (nextClicks === 3) { setSkills(); }
+  // //3: function setRaceAndClass
+  else if (nextClicks === 4) { raceAndClassDialog(); }
+  // //4: function setOtherAttributes
+  else if (nextClicks === 5) { setOtherAttributes(); }
+  // //5: function setAttacksAndEquipment
+  else if (nextClicks === 6) { setAttackAndEquipment(); }
+  //6: Move on to the next Page
+  else {
+    console.log('Don\'t need this anymore');
+  }
+  //if (nextClicks === 6) {loadNextPage}
+  if (nextClicks > 1) { nextClicks++; }
+}
+function setSavingThrows() {
+  console.log('setSavingThrows');
+  for (var i = 0; i < player.statArray.length; i++) {
+    if (i === 0) { updateStat('st-list', i, player.statArray[i] + 2); }
+    else if (i === 2) { updateStat('st-list', i, player.statArray[i] + 2); }
+    else { updateStat('st-list', i, player.statArray[i]); }
+  }
 
-var diceListener = document.getElementById('dice-roller').addEventListener('submit', handleRolls);
 
+
+}
+//
+function forceDiceRoll() {
+  nextButtonDisabled(true);
+  console.log("Go ahead, roll them dice");
+  nextClicks++;
+}
+
+function setSkills() {
+  console.log('setSkills');
+  //2 skills are intimidate and perception. Hard Coding the 2 skills
+  //TODO: update using a .includes to search the array for proficiencies to apply.
+  var intimidate = document.getElementById('intimidate');
+  var perception = document.getElementById('perception');
+  var calcIntimidate = player.statArray[5] + player.proficiencyBonus;
+  var calcPerception = player.statArray[4] + player.proficiencyBonus;
+  intimidate.textContent = `Intimidate: ${calcIntimidate}`;
+  perception.textContent = `Perception: ${calcPerception}`;
+
+}
+function setAttackAndEquipment() {
+  console.log('setAttackAndEquipment');
+  updateEquipment('equipment', player.equipment, player.equipmentName);
+
+}
+function raceAndClassDialog() {
+  console.log('raceAndClassDialog');
+  console.log('Insert the instructions here');
+
+}
+function setOtherAttributes() {
+  setRaceAndClass();
+
+  updateStat('other-list', 0, 8);
+  updateStat('other-list', 1, player.modArray[1]);
+  player.speed = 30;
+  updateStat('other-list', 2, player.speed);
+  updateStat('other-list', 3, (10 + player.statArray[2]));
+  updateStat('other-list', 4, player.proficiencyBonus);
+
+}
+
+function setRaceAndClass() {
+  var nameHeader = document.getElementById('characterName');
+  nameHeader.textContent = player.name;
+  var raceHeader = document.getElementById('characterRaceDisplay');
+  var playerClass = document.getElementById('playerClass');
+  playerClass.textContent = 'Fighter';
+  player.class = 'Fighter';
+  var raceSelect = getRaceSelection();
+  raceHeader.textContent = raceSelect;
+  player.race = raceSelect;
+
+
+
+}
+
+function setStats() {
+  nextButtonDisabled(true);
+  doThreeRoll = true;
+  player.statArray[diceClicks] = diceRollNumber;
+  updateStat('stat-list', diceClicks, diceRollNumber);
+
+  diceClicks++;
+  if (diceClicks >= player.statArray.length) {
+    nextClicks++;
+    player.modifierCalc();
+    nextButtonDisabled(false);
+    doThreeRoll = false;
+  }
+}
+
+
+
+function threeDiceRollsSum() {
+  var rollArray = [];
+  while (rollArray.length < 3) {
+    rollArray.push(diceValue(6));
+  }
+  return sumArray(rollArray);
+}
+
+function nextButtonDisabled(isDisabled) {
+  var checkNext = document.getElementById('next-button');
+  if (isDisabled) {
+    checkNext.disabled = true;
+
+  } else {
+    checkNext.disabled = false;
+  }
+}
+
+function rollButtonDisabled(isDisabled) {
+  var checkButton = document.getElementById('perform-roll');
+  if (isDisabled) {
+    checkButton.disabled = true;
+
+  } else {
+    checkButton.disabled = false;
+  }
+
+}
+
+// var diceListener = document.getElementById('button-roller');
+// diceListener.addEventListener('button', handleRolls);
+// var nextButtonListener = document.getElementById('next-button').addEventListener('submit', handleNext);
 //Executable Code here :>
 //next button to iterate through all of the various components.
 
-updateSkills('skills', 's-int', 0, 'suck it');
-updateStat('st-list', 0, 9001);
-updateStat('stat-list', 2, 'Super Metroid Rocks!');
-updateStat('other-list', 2, 'In the end we all pay the maker.');
-updateEquipment('equipment', player.equipment, player.equipmentName);
-console.log(typeof (getRaceSelection()));
+// updateSkills('skills', 's-int', 0, 'suck it');
+// updateStat('st-list', 0, 9001);
+// updateStat('stat-list', 2, 'Super Metroid Rocks!');
+// updateStat('other-list', 2, 'In the end we all pay the maker.');
+// updateEquipment('equipment', player.equipment, player.equipmentName);
+
+
+
+
 
 

@@ -2,20 +2,27 @@
 <html>
 
 <head>
-  <link href="css/reset.css" rel="stylesheet">
+  <!-- <link href="../css/reset.css" rel="stylesheet"> -->
   <title>Character Creation</title>
 </head>
 
 <body>
   <header>
     <p>Hello <span id=player-name></span> This is the character creation page.</p>
+    <input id="next-button" type="button" value="Next" onclick="handleNext()" />
     <section id="dice-roller">
       <img>
+      <h2 id="dice-roll-header"></h2>
       <h3 id="dice-value">NumberGoesHere</h3>
-      <button id="perform-roll" type="submit">Roll Dice yo!</button>
+      <!-- <form> -->
+      <div id="button-roller">
+
+        <input type="button" value="Roll Dice yo!" onclick="handleRolls()" />
+      </div>
+      <!-- </form> -->
     </section>
     <a href="../html/open.html">Open Page</a>
-    <a href="index.html">Landing Page</a>
+    <a href="../index.html">Landing Page</a>
   </header>
   <main>
     <section id="stat-container">
@@ -46,7 +53,7 @@
         </li>
       </ul>
     </section>
-    <section id="throws-skills-container">
+    <section id="saving-throws-container">
       <div id="saving-throws">
         <ul id="st-list">
           <li id="str-st">
@@ -75,40 +82,43 @@
           </li>
         </ul>
       </div>
+    </section>
+    <section id="skills-container">
       <div id="skills">
         <ul id="s-str">STR
-          <li>Athletics: 12</li>
+          <li>Athletics: 0</li>
         </ul>
         <ul id="s-dex">DEX
-          <li>Acrobatics: 12</li>
-          <li>Sleight of Hand: 12</li>
-          <li>Stealth: 12</li>
+          <li>Acrobatics: 0</li>
+          <li>Sleight of Hand: 0</li>
+          <li>Stealth: 0</li>
         </ul>
         <ul id="s-int">INT
-          <li>Arcana: 12</li>
-          <li>History: 12</li>
-          <li>Investigation: 12</li>
-          <li>Nature: 12</li>
-          <li>Religion: 12</li>
+          <li>Arcana: 0</li>
+          <li>History: 0</li>
+          <li>Investigation: 0</li>
+          <li>Nature: 0</li>
+          <li>Religion: 0</li>
         </ul>
         <ul id="s-wis">WIS
-          <li>Animal Handling: 12</li>
-          <li>Insight: 12</li>
-          <li>Medicine: 12</li>
-          <li>Perception: 12</li>
-          <li>Survival: 12</li>
+          <li>Animal Handling: 0</li>
+          <li>Insight: 0</li>
+          <li>Medicine: 0</li>
+          <li id="perception">Perception: 0</li>
+          <li>Survival: 0</li>
         </ul>
         <ul id="s-cha">CHA
-          <li>Deception: 12</li>
-          <li>Intimidation: 12</li>
-          <li>Performance: 12</li>
-          <li>Persuasion: 12</li>
+          <li>Deception: 0</li>
+          <li id="intimidate">Intimidation: 0</li>
+          <li>Performance: 0</li>
+          <li>Persuasion: 0</li>
         </ul>
       </div>
     </section>
     <section id="race-class-charGraphic">
-      <div id="characterName">
-      </div>
+
+      <h2 id="characterName"></h2>
+      <h2 id="characterRaceDisplay"></h2>
       <div id="race">
         <h2>Select a Race:</h2>
         <!-- <label for="raceSelect"></label> -->
@@ -117,7 +127,7 @@
           <option value="elf">elf</option>
         </select>
       </div>
-      <div id="class"></div>
+      <h2 id="playerClass"></h2>
       <div id="charGraphic"></div>
     </section>
     <section id="other-attributes">
