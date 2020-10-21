@@ -83,30 +83,57 @@ function handleRolls() {
 
 function handleNext() {
 
+  console.log('next-clicks: ' + nextClicks);
   //nextClicks legend:
   //0: function to handle statBuilding
-  if (nextClicks === 1) { setStats(); }
+  //if (nextClicks === 0) { setStats(); }
   //1: function setSavingThrows 
-  if (nextClicks === 2) { setSavingThrows(); }
+  if (nextClicks === 1) { setSavingThrows(); }
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
-  if (nextClicks === 3) { setSkills(); }
-  //3: function setRaceAndClass
-  if (nextClicks === 4) { raceAndClassDialog(); }
-  //4: function setOtherAttributes
-  if (nextClicks === 5) { setOtherAttributes(); }
-  //5: function setAttacksAndEquipment
-  if (nextClicks === 6) { setAttackAndEquipment(); }
+  if (nextClicks === 2) { setSkills(); }
+  // //3: function setRaceAndClass
+  if (nextClicks === 3) { raceAndClassDialog(); }
+  // //4: function setOtherAttributes
+  if (nextClicks === 4) { setOtherAttributes(); }
+  // //5: function setAttacksAndEquipment
+  if (nextClicks === 5) { setAttackAndEquipment(); }
   //6: Move on to the next Page
   //if (nextClicks === 6) {loadNextPage}
-  //nextClicks++;
+  nextClicks++;
+}
+function setSavingThrows() {
+  console.log('setSavingThrows');
+  for (var i = 0; i < player.statArray.length; i++) {
+    if (i === 0) { updateStat('st-list', i, player.statArray[i] + 2); }
+    else if (i === 2) { updateStat('st-list', i, player.statArray[i] + 2); }
+    else { updateStat('st-list', i, player.statArray[i]); }
+  }
+
+
+
+}
+//
+function setSkills() {
+  console.log('setSkills');
+  //2 skills are intimidate and perception. Hard Coding the 2 skills
+  //TODO: update using a .includes to search the array for proficiencies to apply.
+  var intimidate = document.getElementById('intimidate');
+  var perception = document.getElementById('perception');
+  var calcIntimidate = player.statArray[5] + player.proficiencyBonus;
+  var calcPerception = player.statArray[4] + player.proficiencyBonus;
+  intimidate.textContent = `Intimidate: ${calcIntimidate}`;
+  perception.textContent = `Perception: ${calcPerception}`;
+
 }
 function setAttackAndEquipment() {
-  updateEquipment('equipment', player.equipArray, player.equipArrayName);
-  nextClicks++;
+  console.log('setAttackAndEquipment');
+  updateEquipment('equipment', player.equipment, player.equipmentName);
+
 }
 function raceAndClassDialog() {
+  console.log('raceAndClassDialog');
   console.log('Insert the instructions here');
-  nextClicks++;
+
 }
 function setOtherAttributes() {
   setRaceAndClass();
@@ -117,7 +144,7 @@ function setOtherAttributes() {
   updateStat('other-list', 2, player.speed);
   updateStat('other-list', 3, (10 + player.statArray[2]));
   updateStat('other-list', 4, player.proficiencyBonus);
-  nextClicks++;
+
 }
 
 function setRaceAndClass() {
@@ -150,29 +177,7 @@ function setStats() {
   }
 }
 
-function setSkills() {
-  //2 skills are intimidate and perception. Hard Coding the 2 skills
-  //TODO: update using a .includes to search the array for proficiencies to apply.
-  var intimidate = document.getElementById('intimidate');
-  var perception = document.getElementById('perception');
-  var calcIntimidate = player.statArray[5] + player.proficiencyBonus;
-  var calcPerception = player.statArray[4] + player.proficiencyBonus;
-  intimidate.textContent = `Intimidate: ${calcIntimidate}`;
-  perception.textContent = `Perception: ${calcPerception}`;
-  nextClicks++;
-}
 
-function setSavingThrows() {
-  for (var i = 0; i < player.statArray.length; i++) {
-    if (i === 0) { updateStat('st-list', i, player.statArray[i] + 2); }
-    else if (i === 2) { updateStat('st-list', i, player.statArray[i] + 2); }
-    else { updateStat('st-list', i, player.statArray[i]); }
-  }
-
-  //
-
-  nextClicks++;
-}
 
 function threeDiceRollsSum() {
   var rollArray = [];
@@ -209,11 +214,11 @@ function rollButtonDisabled(isDisabled) {
 //Executable Code here :>
 //next button to iterate through all of the various components.
 
-updateSkills('skills', 's-int', 0, 'suck it');
-updateStat('st-list', 0, 9001);
-updateStat('stat-list', 2, 'Super Metroid Rocks!');
-updateStat('other-list', 2, 'In the end we all pay the maker.');
-updateEquipment('equipment', player.equipment, player.equipmentName);
+// updateSkills('skills', 's-int', 0, 'suck it');
+// updateStat('st-list', 0, 9001);
+// updateStat('stat-list', 2, 'Super Metroid Rocks!');
+// updateStat('other-list', 2, 'In the end we all pay the maker.');
+// updateEquipment('equipment', player.equipment, player.equipmentName);
 
 
 
