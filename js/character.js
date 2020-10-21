@@ -7,9 +7,10 @@ var diceRollNumber;
 var useDiceNumber = false;
 var doThreeRoll = false;
 var nextClicks = 0;
+var diceClicks = 0;
 //
 var player = new Character('bob', 100);
-player.generateAllStats();
+//player.generateAllStats();
 
 player.modifierCalc();
 saveCharacter(player);
@@ -58,9 +59,8 @@ function updateEquipment(idTag, equipArray, equipArrayName) {
   }
 }
 
-function handleRolls(event) {
-  event.preventDefault();
-  debugger;
+function handleRolls() {
+
   var sumRoll;
   var parentElementHead = document.getElementById('dice-roll-header');
   var parentElement = document.getElementById('dice-value');
@@ -78,19 +78,21 @@ function handleRolls(event) {
   parentElement.textContent = sumRoll;
   diceRollNumber = sumRoll;
   console.log(diceRollNumber);
+  if (nextClicks === 0) { setStats(); }
 }
 
 function handleNext(event) {
   event.preventDefault();
-  //clicks legend:
+  //nextClicks legend:
   //0: function to handle statBuilding
+  if (nextClicks === 0) { setStats(); }
   //1: function setSavingThrows 
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
   //3: function setRaceAndClass
   //4: function setOtherAttributes
   //5: function setAttacksAndEquipment
 
-  nextClicks++;
+  //nextClicks++;
 }
 
 
@@ -98,19 +100,24 @@ function handleNext(event) {
 
 function setStats() {
 
-  var counter = 0;
+
   nextButtonDisabled(true);
   doThreeRoll = true;
 
-  while (counter < player.statArray.length) {
-    //user has to click "rolldice"
-    //roll 3dice, get the sum
-    //update stat in object
-    //display state on page
 
-    counter++;
+  /////user has to click "rolldice"
+  player.statArray[diceClicks] = diceRollNumber;
+  /////roll 3dice, get the sum
+  //update stat in object
+  //display state on page
+
+  diceClicks++;
+  if (diceClicks >= player.statArray.length) {
+    nextClicks++;
+    nextButtonDisabled(false);
   }
 }
+
 
 
 function threeDiceRollsSum() {
@@ -142,9 +149,9 @@ function rollButtonDisabled(isDisabled) {
   console.log(checkButton.disabled);
 }
 
-var diceListener = document.getElementById('button-roller');
-diceListener.addEventListener('submit', handleRolls);
-var nextButtonListener = document.getElementById('next-button').addEventListener('submit', handleNext);
+// var diceListener = document.getElementById('button-roller');
+// diceListener.addEventListener('button', handleRolls);
+// var nextButtonListener = document.getElementById('next-button').addEventListener('submit', handleNext);
 //Executable Code here :>
 //next button to iterate through all of the various components.
 
