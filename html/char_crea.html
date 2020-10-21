@@ -14,7 +14,7 @@
       <h3 id="dice-value">NumberGoesHere</h3>
       <button id="perform-roll" type="submit">Roll Dice yo!</button>
     </section>
-    <a href="scenario.html">Scenario Page</a>
+    <a href="../html/open.html">Open Page</a>
     <a href="index.html">Landing Page</a>
   </header>
   <main>
@@ -107,14 +107,21 @@
       </div>
     </section>
     <section id="race-class-charGraphic">
-      <div id="characterName"></div>
-      <div id="race"></div>
+      <div id="characterName">
+      </div>
+      <div id="race">
+        <h2>Select a Race:</h2>
+        <!-- <label for="raceSelect"></label> -->
+        <select name="raceSelect" id="race-choose">
+          <option value="human">Human</option>
+          <option value="elf">elf</option>
+        </select>
+      </div>
       <div id="class"></div>
       <div id="charGraphic"></div>
     </section>
     <section id="other-attributes">
-
-      <ul>
+      <ul id="other-list">
         <li id="armor">
           <h4 class="stats">ARMOR</h4>
           <h5>12</h5>
@@ -139,10 +146,12 @@
     </section>
     <section id="attacks-equipment">
       <div id="attacks">
+        <h4>ATTACKS</h4>
         <p>Nothing</p>
       </div>
       <div id="equipment">
-        <p>Cha ching with the Bling Bling</p>
+        <h4>EQUIPMENT</h4>
+        <!-- <p id='equipment'>Cha ching with the Bling Bling</p> -->
       </div>
     </section>
   </main>
@@ -152,8 +161,8 @@
     <p>&copy; 2020 Froot Loopes.</p>
     <p>Don't Sue us!</p>
   </footer>
-  <script src="js/app.js"></script>
-  <script src="js/character.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/character.js"></script>
 </body>
 
 </html>
