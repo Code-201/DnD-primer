@@ -2,13 +2,15 @@
 <html>
 
 <head>
-  <!-- <link href="../css/reset.css" rel="stylesheet"> -->
+
   <title>Character Creation</title>
+  <link href="css/reset.css" rel="stylesheet">
+  <link href="css/character.css" rel="stylesheet">
 </head>
 
 <body>
   <header>
-    <p>Hello <span id=player-name></span> This is the character creation page.</p>
+    <p id="dialog-text">Hello <span id=player-name></span> This is the character creation page.</p>
     <input id="next-button" type="button" value="Next" onclick="handleNext()" />
     <section id="dice-roller">
       <img>
