@@ -85,21 +85,25 @@ function handleNext() {
 
   console.log('next-clicks: ' + nextClicks);
   //nextClicks legend:
+  if (nextClicks === 0) { forceDiceRoll(); }
   //0: function to handle statBuilding
-  //if (nextClicks === 0) { setStats(); }
+  else if (nextClicks === 1) { setStats(); }
   //1: function setSavingThrows 
-  if (nextClicks === 1) { setSavingThrows(); }
+  else if (nextClicks === 2) { setSavingThrows(); }
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
-  if (nextClicks === 2) { setSkills(); }
+  else if (nextClicks === 3) { setSkills(); }
   // //3: function setRaceAndClass
-  if (nextClicks === 3) { raceAndClassDialog(); }
+  else if (nextClicks === 4) { raceAndClassDialog(); }
   // //4: function setOtherAttributes
-  if (nextClicks === 4) { setOtherAttributes(); }
+  else if (nextClicks === 5) { setOtherAttributes(); }
   // //5: function setAttacksAndEquipment
-  if (nextClicks === 5) { setAttackAndEquipment(); }
+  else if (nextClicks === 6) { setAttackAndEquipment(); }
   //6: Move on to the next Page
+  else {
+    console.log('Don\'t need this anymore');
+  }
   //if (nextClicks === 6) {loadNextPage}
-  nextClicks++;
+  if (nextClicks > 1) { nextClicks++; }
 }
 function setSavingThrows() {
   console.log('setSavingThrows');
@@ -113,6 +117,12 @@ function setSavingThrows() {
 
 }
 //
+function forceDiceRoll() {
+  nextButtonDisabled(true);
+  console.log("Go ahead, roll them dice");
+  nextClicks++;
+}
+
 function setSkills() {
   console.log('setSkills');
   //2 skills are intimidate and perception. Hard Coding the 2 skills
