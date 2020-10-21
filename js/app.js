@@ -1,10 +1,11 @@
 'use strict';
 var player;
 
+
 function diceValue(sides) {
   return Math.floor((Math.random() * sides)) + 1;
-
 }
+
 function Character(name, hitPoints = 100) {
   //fighter
   this.name = name;
