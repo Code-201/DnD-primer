@@ -5,6 +5,8 @@
 
 var diceRollNumber;
 var useDiceNumber = false;
+var doThreeRoll = false;
+var nextClicks = 0;
 //
 var player = new Character('bob', 100);
 player.generateAllStats();
@@ -58,21 +60,91 @@ function updateEquipment(idTag, equipArray, equipArrayName) {
 
 function handleRolls(event) {
   event.preventDefault();
-  diceRollNumber = diceValue(6);
-  //function to display the value in the 'dice-roller' area.
-  //write a function to track and update different values with diceRollNumber.
-  // sum of three rolls.
+  debugger;
+  var sumRoll;
+  var parentElementHead = document.getElementById('dice-roll-header');
+  var parentElement = document.getElementById('dice-value');
+
+  if (doThreeRoll) {
+    sumRoll = threeDiceRollsSum();
+    parentElementHead.textContent = 'Three Roll Sum';
+
+
+  } else {
+    sumRoll = diceValue(6);
+    parentElementHead.textContent = 'Roll Value';
+
+  }
+  parentElement.textContent = sumRoll;
+  diceRollNumber = sumRoll;
+  console.log(diceRollNumber);
 }
 
-// function threeRollsStats (){
-//   var rollArray = [];
-//   while(rollArray.length < 3){
+function handleNext(event) {
+  event.preventDefault();
+  //clicks legend:
+  //0: function to handle statBuilding
+  //1: function setSavingThrows 
+  //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
+  //3: function setRaceAndClass
+  //4: function setOtherAttributes
+  //5: function setAttacksAndEquipment
 
-//   }
-// }
+  nextClicks++;
+}
 
-var diceListener = document.getElementById('dice-roller').addEventListener('submit', handleRolls);
 
+
+
+function setStats() {
+
+  var counter = 0;
+  nextButtonDisabled(true);
+  doThreeRoll = true;
+
+  while (counter < player.statArray.length) {
+    //user has to click "rolldice"
+    //roll 3dice, get the sum
+    //update stat in object
+    //display state on page
+
+    counter++;
+  }
+}
+
+
+function threeDiceRollsSum() {
+  var rollArray = [];
+  while (rollArray.length < 3) {
+    rollArray.push(diceValue(6));
+  }
+  return sumArray(rollArray);
+}
+
+function nextButtonDisabled(isDisabled) {
+  var checkNext = document.getElementById('next-button');
+  if (isDisabled) {
+    checkNext.disabled = true;
+
+  } else {
+    checkNext.disabled = false;
+  }
+}
+
+function rollButtonDisabled(isDisabled) {
+  var checkButton = document.getElementById('perform-roll');
+  if (isDisabled) {
+    checkButton.disabled = true;
+
+  } else {
+    checkButton.disabled = false;
+  }
+  console.log(checkButton.disabled);
+}
+
+var diceListener = document.getElementById('button-roller');
+diceListener.addEventListener('submit', handleRolls);
+var nextButtonListener = document.getElementById('next-button').addEventListener('submit', handleNext);
 //Executable Code here :>
 //next button to iterate through all of the various components.
 
@@ -81,6 +153,9 @@ updateStat('st-list', 0, 9001);
 updateStat('stat-list', 2, 'Super Metroid Rocks!');
 updateStat('other-list', 2, 'In the end we all pay the maker.');
 updateEquipment('equipment', player.equipment, player.equipmentName);
-console.log(typeof (getRaceSelection()));
+
+
+
+
 
 

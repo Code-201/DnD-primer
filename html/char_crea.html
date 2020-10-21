@@ -2,20 +2,25 @@
 <html>
 
 <head>
-  <link href="css/reset.css" rel="stylesheet">
+  <link href="../css/reset.css" rel="stylesheet">
   <title>Character Creation</title>
 </head>
 
 <body>
   <header>
     <p>Hello <span id=player-name></span> This is the character creation page.</p>
+    <button id="next-button" type="submit">Next</button>
     <section id="dice-roller">
       <img>
+      <h2 id="dice-roll-header"></h2>
       <h3 id="dice-value">NumberGoesHere</h3>
-      <button id="perform-roll" type="submit">Roll Dice yo!</button>
+      <div id="button-roller">
+        <input type="submit" value="Roll Dice yo!" />
+      </div>
+
     </section>
     <a href="../html/open.html">Open Page</a>
-    <a href="index.html">Landing Page</a>
+    <a href="../index.html">Landing Page</a>
   </header>
   <main>
     <section id="stat-container">
