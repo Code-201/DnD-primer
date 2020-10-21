@@ -86,6 +86,7 @@ function handleNext(event) {
   //nextClicks legend:
   //0: function to handle statBuilding
   if (nextClicks === 0) { setStats(); }
+  if (nextClicks === 1) { setSavingThrows() }
   //1: function setSavingThrows 
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
   //3: function setRaceAndClass
@@ -99,26 +100,38 @@ function handleNext(event) {
 
 
 function setStats() {
-
-
   nextButtonDisabled(true);
   doThreeRoll = true;
-
-
-  /////user has to click "rolldice"
   player.statArray[diceClicks] = diceRollNumber;
-  /////roll 3dice, get the sum
-  //update stat in object
-  //display state on page
+  updateStat('stat-list', diceClicks, diceRollNumber);
 
   diceClicks++;
   if (diceClicks >= player.statArray.length) {
     nextClicks++;
+    player.modifierCalc();
     nextButtonDisabled(false);
+    doThreeRoll = false;
   }
 }
 
+function setSkills() {
+  //2 skills are intimidate and perception. Hard Coding the 2 skills
+  //TODO: update using a .includes to search the array for proficiencies to apply.
+  var intimidate = document.getElementById('intimidate');
+  var perception = document.getElementById('perception');
+  var calcIntimidate = player.statArray[5] + 2;
+  var calcPerception = player.statArray[4] + 2;
 
+
+
+}
+
+function setSavingThrows() {
+
+  //
+
+  nextClicks++;
+}
 
 function threeDiceRollsSum() {
   var rollArray = [];
