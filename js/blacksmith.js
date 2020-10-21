@@ -33,12 +33,14 @@ retrieveCharacter();
 
 //renders the player stats portion of the window
 function renderStatsSection() {
+  statsSection.innerHTML = '';
   renderPStats();
   renderBaseStats();
 }
 
 //Renders all stats connected to P elements
 function renderPStats(){
+
   var statsNames = ['Name: ', 'Race: ', 'Hit Points: ', 'AC: ', 'Gold: '];
   var statsValues = [player.name, player.race, player.hitPoints, player.armor, player.equipment];
   for(var i =0; i < statsNames.length; i++){
@@ -137,13 +139,17 @@ function handleHeavyArmor(){
   } else {
     player.armor = 12 + player.modArray[1];
   }
-  console.log(player.armor);
+  console.log(player.armor)
 
   //update weapon mod
   player.weapon = player.modArray[0];
   console.log(player.modArray[0]);
   console.log(player.weapon);
 
+  console.log(player);
+
+
+  renderStatsSection();
   //remove event listener and buttons
   document.getElementById('heavyArmorButton').removeEventListener('click', handleHeavyArmor);
   document.getElementById('armorChoiceButtons').innerHTML = '';
