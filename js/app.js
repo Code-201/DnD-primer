@@ -98,10 +98,10 @@ function rebuildInstanceForObjLiteral(parsedObj) {
   return player;
 }
 
-function calcRoll(stat, sides, prof) { //stat: array index of the modifier we need, die: max for rollDice function, prof: name of skill used
+function calcRoll(stat, baseNumber, prof) { //stat: array index of the modifier we need, die: max for rollDice function, prof: name of skill used
   // var baseRoll = dieRoll;
   var finalRoll;
-  var withMod = diceValue(sides) + player.modArray[stat];
+  var withMod = baseNumber + player.modArray[stat];
 
   if (player.proficiencyArray.includes(prof)) {
     //profBool = true;

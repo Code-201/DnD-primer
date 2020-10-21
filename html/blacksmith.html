@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Blacksmith Shopf</title>
-    <link rel="stylesheet" href="../darkmode.css">
-  </head>
-  <body>
-    <section id="stats"></section>
-    <section id="diceRoll">
-      <button id="rollD20" type="button">Roll D20</button>
-      <button id="rollD10" type="button">Roll D10</button>
-      <button id="rollD8" type="button">Roll D8</button>
-      <p id="displayResult"></p>
-    </section>
-    <section id="dmBox">
-      <p id="displayDmDialogue"></p>
-    </section>
-    <section id="dialogue">
-      <p id="displayUserDialogue"></p>
-      <div id="nextButtonContainer">
-        <button id="nextButton" type="button">Next</button></div>
-      <div>
+
+<head>
+  <title>Blacksmith Shopf</title>
+  <link rel="stylesheet" href="../darkmode.css">
+</head>
+
+<body>
+  <section id="stats"></section>
+  <section id="diceRoll">
+    <button id="rollD20" type="button">Roll D20</button>
+    <button id="rollD10" type="button">Roll D10</button>
+    <button id="rollD8" type="button">Roll D8</button>
+    <p id="displayResult"></p>
+  </section>
+  <section id="dmBox">
+    <p id="displayDmDialogue"></p>
+  </section>
+  <section id="dialogue">
+    <p id="displayUserDialogue"></p>
+    <div id="nextButtonContainer">
+      <button id="nextButton" type="button">Next</button></div>
+    <div>
       <div id="armorChoiceButtons">
         <span id="heavyArmorButton"></span>
         <span id="lightArmorButton"></span>
       </div>
+      <div id="armorAcquisition">
+        <span id="steal"></span>
+        <span id="buy"></span>
+        <span id="intimidate"></span>
+      </div>
       <div>
         <form action="../html/battle.html" id="nextPageButtonContainer"></form>
       </div>
-    </section>
+  </section>
   <footer></footer>
   <script src="../js/app.js"></script>
   <script src="../js/blacksmith.js"></script>
