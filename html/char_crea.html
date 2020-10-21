@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="css/reset.css" rel="stylesheet">
+  <title>Character Creation</title>
+</head>
+
+<body>
+  <header>
+    <p>Hello <span id=player-name></span> This is the character creation page.</p>
+    <section id="dice-roller">
+      <img>
+      <h3 id="dice-value">NumberGoesHere</h3>
+      <button id="perform-roll" type="submit">Roll Dice yo!</button>
+    </section>
+    <a href="../html/open.html">Open Page</a>
+    <a href="index.html">Landing Page</a>
+  </header>
+  <main>
+    <section id="stat-container">
+      <ul id="stat-list">
+        <li id="str">
+          <h4 class="stats">STR</h4>
+          <h5></h5>
+        </li>
+        <li id="dex">
+          <h4 class="stats">DEX</h4>
+          <h5></h5>
+        </li>
+        <li id="con">
+          <h4 class="stats">CON</h4>
+          <h5></h5>
+        </li>
+        <li id="int">
+          <h4 class="stats">INT</h4>
+          <h5></h5>
+        </li>
+        <li id="wis">
+          <h4 class="stats">WIS</h4>
+          <h5></h5>
+        </li>
+        <li id="cha">
+          <h4 class="stats">CHA</h4>
+          <h5></h5>
+        </li>
+      </ul>
+    </section>
+    <section id="throws-skills-container">
+      <div id="saving-throws">
+        <ul id="st-list">
+          <li id="str-st">
+            <h4 class="stats">STR</h4>
+            <h5>400</h5>
+          </li>
+          <li id="dex-st">
+            <h4 class="stats">DEX</h4>
+            <h5>400</h5>
+          </li>
+          <li id="con-st">
+            <h4 class="stats">CON</h4>
+            <h5>400</h5>
+          </li>
+          <li id="int-st">
+            <h4 class="stats">INT</h4>
+            <h5>400</h5>
+          </li>
+          <li id="wis-st">
+            <h4 class="stats">WIS</h4>
+            <h5>400</h5>
+          </li>
+          <li id="cha-st">
+            <h4 class="stats">CHA</h4>
+            <h5>400</h5>
+          </li>
+        </ul>
+      </div>
+      <div id="skills">
+        <ul id="s-str">STR
+          <li>Athletics: 12</li>
+        </ul>
+        <ul id="s-dex">DEX
+          <li>Acrobatics: 12</li>
+          <li>Sleight of Hand: 12</li>
+          <li>Stealth: 12</li>
+        </ul>
+        <ul id="s-int">INT
+          <li>Arcana: 12</li>
+          <li>History: 12</li>
+          <li>Investigation: 12</li>
+          <li>Nature: 12</li>
+          <li>Religion: 12</li>
+        </ul>
+        <ul id="s-wis">WIS
+          <li>Animal Handling: 12</li>
+          <li>Insight: 12</li>
+          <li>Medicine: 12</li>
+          <li>Perception: 12</li>
+          <li>Survival: 12</li>
+        </ul>
+        <ul id="s-cha">CHA
+          <li>Deception: 12</li>
+          <li>Intimidation: 12</li>
+          <li>Performance: 12</li>
+          <li>Persuasion: 12</li>
+        </ul>
+      </div>
+    </section>
+    <section id="race-class-charGraphic">
+      <div id="characterName">
+      </div>
+      <div id="race">
+        <h2>Select a Race:</h2>
+        <!-- <label for="raceSelect"></label> -->
+        <select name="raceSelect" id="race-choose">
+          <option value="human">Human</option>
+          <option value="elf">elf</option>
+        </select>
+      </div>
+      <div id="class"></div>
+      <div id="charGraphic"></div>
+    </section>
+    <section id="other-attributes">
+      <ul id="other-list">
+        <li id="armor">
+          <h4 class="stats">ARMOR</h4>
+          <h5>12</h5>
+        </li>
+        <li id="initiative">
+          <h4 class="stats">INITIATIVE</h4>
+          <h5>12</h5>
+        </li>
+        <li id="speed">
+          <h4 class="stats">SPEED</h4>
+          <h5>12</h5>
+        </li>
+        <li id="hitpoints">
+          <h4 class="stats">HITPOINTS</h4>
+          <h5>12</h5>
+        </li>
+        <li id="prof-bonus">
+          <h4 class="stats">PROF BONUS</h4>
+          <h5>12</h5>
+        </li>
+      </ul>
+    </section>
+    <section id="attacks-equipment">
+      <div id="attacks">
+        <h4>ATTACKS</h4>
+        <p>Nothing</p>
+      </div>
+      <div id="equipment">
+        <h4>EQUIPMENT</h4>
+        <!-- <p id='equipment'>Cha ching with the Bling Bling</p> -->
+      </div>
+    </section>
+  </main>
+
+
+  <footer>
+    <p>&copy; 2020 Froot Loopes.</p>
+    <p>Don't Sue us!</p>
+  </footer>
+  <script src="../js/app.js"></script>
+  <script src="../js/character.js"></script>
+</body>
+
+</html>
