@@ -60,7 +60,7 @@ function updateEquipment(idTag, equipArray, equipArrayName) {
 }
 
 function handleRolls() {
-  if (nextClicks === 0) { doThreeRoll = true; }
+  if (nextClicks === 1) { doThreeRoll = true; }
   var sumRoll;
   var parentElementHead = document.getElementById('dice-roll-header');
   var parentElement = document.getElementById('dice-value');
@@ -78,7 +78,7 @@ function handleRolls() {
   parentElement.textContent = sumRoll;
   diceRollNumber = sumRoll;
 
-  if (nextClicks === 0) { setStats(); }
+  if (nextClicks === 1) { setStats(); }
 }
 
 function handleNext() {
