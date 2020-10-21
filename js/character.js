@@ -8,8 +8,15 @@ var useDiceNumber = false;
 var doThreeRoll = false;
 var nextClicks = 0;
 var diceClicks = 0;
-//
 var player = new Character('bob', 100);
+var dialogArray = [`Hey there adventurer! This is the character creation page.  You look like a fighter, so we will assign you the class fighter! Cool, right?` +
+  '  Ok, first thing is first.  These are the dice, go ahead and click \'NEXT\' and take some rolls!', 'These are your stats, they will be the sum'
++ ' of three 10-sided dice rolls.  We will take the hard work out of it and sum it up for you.  So go ahead an roll for your initial stats', 'We are gonna set your Saving Throws' +
+' We will set these up. Math Math Math.', 'We will set your skills, since are a fighter, you can eat INTIMIDATE some rotten tomatoes so we will add some to your INTIMIDATE skill.  ' +
+'Since you have trained and done lots of pushups, you have a heightened PERCEPTION, so we will add to that!.', 'Now you can choose your Race <span id="raceClass"></span>. ' +
+'  there are tons to choose from, but for this scenario you can choose ELF or HUMAN.  We have already determined you are a FIGHTER class. After you select your race, click \'NEXT\'', 'These are other attributes. Armor, Equipment.  Don\'t worry about Attack, we will get to that later', ' But ' +
+'I suppose you need some money, don\'t we all, so here is 100 gold!  Your\'re welcome!', `Ok! You\'re all set ${player.name}!  Let's get you some Armor and Weaponry`];
+//
 //player.generateAllStats();
 
 player.modifierCalc();
@@ -81,25 +88,38 @@ function handleRolls() {
   if (nextClicks === 1) { setStats(); }
 }
 
+function displayDialog(indexNumber) {
+  console.log('displaying Dialog: ' + indexNumber);
+  if (indexNumber >= dialogArray.length) {
+    console.log('displayDialog indexNumber exceeds length of dialogArray length');
+  } else {
+    var parentElement = document.getElementById('dialog-text');
+    console.log('parentElement: ' + parentElement);
+    parentElement.innerHTML = dialogArray[indexNumber];
+  }
+}
 function handleNext() {
 
   console.log('next-clicks: ' + nextClicks);
   //nextClicks legend:
-  if (nextClicks === 0) { forceDiceRoll(); }
+  if (nextClicks === 0) { displayDialog(0); forceDiceRoll(); }
   //0: function to handle statBuilding
   else if (nextClicks === 1) { setStats(); }
   //1: function setSavingThrows 
-  else if (nextClicks === 2) { setSavingThrows(); }
+  else if (nextClicks === 2) { displayDialog(2); setSavingThrows(); }
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
-  else if (nextClicks === 3) { setSkills(); }
+  else if (nextClicks === 3) { displayDialog(3); setSkills(); }
   // //3: function setRaceAndClass
-  else if (nextClicks === 4) { raceAndClassDialog(); }
+  else if (nextClicks === 4) { displayDialog(4); raceAndClassDialog(); }
   // //4: function setOtherAttributes
-  else if (nextClicks === 5) { setOtherAttributes(); }
+  else if (nextClicks === 5) { displayDialog(5); setOtherAttributes(); }
   // //5: function setAttacksAndEquipment
-  else if (nextClicks === 6) { setAttackAndEquipment(); }
+  else if (nextClicks === 6) { displayDialog(6); setAttackAndEquipment(); }
   //6: Move on to the next Page
+  else if (nextClicks === 7) { displayDialog(7); }
+
   else {
+    window.location.href = '/html/open.html';
     console.log('Don\'t need this anymore');
   }
   //if (nextClicks === 6) {loadNextPage}
@@ -177,6 +197,7 @@ function setStats() {
   doThreeRoll = true;
   player.statArray[diceClicks] = diceRollNumber;
   updateStat('stat-list', diceClicks, diceRollNumber);
+  displayDialog(1);
 
   diceClicks++;
   if (diceClicks >= player.statArray.length) {
@@ -184,6 +205,7 @@ function setStats() {
     player.modifierCalc();
     nextButtonDisabled(false);
     doThreeRoll = false;
+
   }
 }
 
@@ -218,18 +240,9 @@ function rollButtonDisabled(isDisabled) {
 
 }
 
-// var diceListener = document.getElementById('button-roller');
-// diceListener.addEventListener('button', handleRolls);
-// var nextButtonListener = document.getElementById('next-button').addEventListener('submit', handleNext);
 //Executable Code here :>
-//next button to iterate through all of the various components.
-
-// updateSkills('skills', 's-int', 0, 'suck it');
-// updateStat('st-list', 0, 9001);
-// updateStat('stat-list', 2, 'Super Metroid Rocks!');
-// updateStat('other-list', 2, 'In the end we all pay the maker.');
-// updateEquipment('equipment', player.equipment, player.equipmentName);
-
+///TODO: create a prompt for user to enter thier Name, and store when creating the Character object
+displayDialog(0);
 
 
 
