@@ -47,9 +47,35 @@ function updateSkills(parentId, attribute, listItem, dataString) {
   ulItems[listItem].innerHTML = dataString;
 }
 
-function getRaceSelection() {
-  //returns a string
-  return document.getElementById('race-choose').value;
+function insertRaceSelectionDrop() {
+
+  var selectElement = document.createElement('select');
+  selectElement.setAttribute('name', 'raceSelect');
+  selectElement.setAttribute('id', 'race-choose');
+  document.getElementById('raceClass').appendChild(selectElement);
+  var optB = document.createElement('option');
+  optB.setAttribute('value', 'None');
+  optB.textContent = "NoneSelected";
+
+  var opt1 = document.createElement('option');
+  opt1.setAttribute('value', 'human');
+  opt1.textContent = "Human";
+
+  var opt2 = document.createElement('option');
+  opt2.setAttribute('value', 'elf');
+  opt2.textContent = "Elf";
+
+  selectElement.appendChild(optB);
+  selectElement.appendChild(opt1);
+  selectElement.appendChild(opt2);
+
+
+
+
+  //  <select name="raceSelect" id="race-choose">
+  //          <option value="human">Human</option>
+  //          <option value="elf">elf</option>
+  //        </select>
 }
 
 function updateEquipment(idTag, equipArray, equipArrayName) {
@@ -110,9 +136,9 @@ function handleNext() {
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
   else if (nextClicks === 3) { displayDialog(3); setSkills(); }
   // //3: function setRaceAndClass
-  else if (nextClicks === 4) { displayDialog(4); raceAndClassDialog(); }
+  else if (nextClicks === 4) { displayDialog(4); raceAndClassDialog(); insertRaceSelectionDrop(); }
   // //4: function setOtherAttributes
-  else if (nextClicks === 5) { displayDialog(5); setOtherAttributes(); }
+  else if (nextClicks === 5) { setRaceAndClass(); displayDialog(5); setOtherAttributes(); }
   // //5: function setAttacksAndEquipment
   else if (nextClicks === 6) { displayDialog(6); setAttackAndEquipment(); }
   //6: Move on to the next Page
@@ -167,8 +193,6 @@ function raceAndClassDialog() {
 
 }
 function setOtherAttributes() {
-  setRaceAndClass();
-
   updateStat('other-list', 0, 8);
   updateStat('other-list', 1, player.modArray[1]);
   player.speed = 30;
@@ -185,7 +209,7 @@ function setRaceAndClass() {
   var playerClass = document.getElementById('playerClass');
   playerClass.textContent = 'Fighter';
   player.class = 'Fighter';
-  var raceSelect = getRaceSelection();
+  var raceSelect = document.getElementById('race-choose').value;
   raceHeader.textContent = raceSelect;
   player.race = raceSelect;
 
