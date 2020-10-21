@@ -67,7 +67,20 @@ function renderDmSection() {
   var scenario = document.getElementById('displayDmDialogue');
   scenario.textContent = dmDialogue[nextClick];
   nextClick++;
+}
 
+//Renders dialogue for user section
+var nextNext = 0;
+function renderUserSection() {
+  var usersDialogue = ['user 1 ', 'user 2 ', 'user 3 '];
+  var userPrompt = document.getElementById('displayUserDialogue');
+  userPrompt.textContent = usersDialogue[nextNext];
+  nextNext++;
+
+
+  if (nextNext === usersDialogue.length) {
+    endDialogue();
+  }
 }
 
 //Renders dialogue for user section
