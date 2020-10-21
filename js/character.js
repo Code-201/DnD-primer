@@ -16,11 +16,10 @@ var dialogArray = [`Hey there adventurer! This is the character creation page.  
 'Since you have trained and done lots of pushups, you have a heightened PERCEPTION, so we will add to that!.', 'Now you can choose your Race <span id="raceClass"></span>. ' +
 '  there are tons to choose from, but for this scenario you can choose ELF or HUMAN.  We have already determined you are a FIGHTER class. After you select your race, click \'NEXT\'', 'These are other attributes. Armor, Equipment.  Don\'t worry about Attack, we will get to that later', ' But ' +
 'I suppose you need some money, don\'t we all, so here is 100 gold!  Your\'re welcome!', `Ok! You\'re all set ${player.name}!  Let's get you some Armor and Weaponry`];
-//
-//player.generateAllStats();
 
-player.modifierCalc();
-saveCharacter(player);
+
+
+
 
 
 //updates value of stat by idName, index (0 being str) and value (value rolled for stat)
@@ -106,7 +105,7 @@ function handleNext() {
   //0: function to handle statBuilding
   else if (nextClicks === 1) { setStats(); }
   //1: function setSavingThrows 
-  else if (nextClicks === 2) { displayDialog(2); setSavingThrows(); }
+  else if (nextClicks === 2) { player.modifierCalc(); displayDialog(2); setSavingThrows(); }
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
   else if (nextClicks === 3) { displayDialog(3); setSkills(); }
   // //3: function setRaceAndClass
@@ -119,6 +118,7 @@ function handleNext() {
   else if (nextClicks === 7) { displayDialog(7); }
 
   else {
+    saveCharacter(player);
     window.location.href = '/html/open.html';
     console.log('Don\'t need this anymore');
   }
