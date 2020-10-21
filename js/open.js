@@ -20,7 +20,7 @@ document.getElementById('rollD8').addEventListener('click', function () {
 document.getElementById('nextButton').addEventListener('click', renderDmSection);
 document.getElementById('nextButton').addEventListener('click', renderUserSection);
 
-document.getElementById('button').addEventListener('click',);
+// document.getElementById('button').addEventListener('click',);
 
 
 
@@ -87,10 +87,11 @@ function renderUserSection() {
   }
 }
 function displayNextPageButton() {
-  var nextPageContainer = document.getElementById('nextPageButtonContainer');
-  var nextPageButton = document.createElement('button');
-  nextPageButton.textContent = 'Go to the Blacksmith!';
-  nextPageContainer.appendChild(nextPageButton);
+  var nextPageForm = document.getElementById('nextPageButtonContainer');
+  var nextPageButton = document.createElement('input');
+  nextPageButton.setAttribute('type', 'submit');
+  nextPageButton.setAttribute('value', 'Go to the Blacksmith!');
+  nextPageForm.appendChild(nextPageButton);
 }
 
 
