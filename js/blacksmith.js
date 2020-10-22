@@ -228,7 +228,6 @@ function handleSteal() {
   } else {
     renderStatsSection();
     resultsContainer.textContent = 'you stole it';
-
     nextButtonDisabled(false);
   }
 
