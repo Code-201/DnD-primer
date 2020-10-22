@@ -25,15 +25,15 @@ function checkEndGame() {
   console.log('Player Hitpoints' + player.hitPoints);
 }
 function dragonAttack() {
-  //debugger
+  debugger
   var dialogue = `Dragon Attacks!`;
-  var attackDamage;
+  var attackDamage = 0;
   if (!dragon.usedFireBreath) {
     for (var i = 0; i <= 7; i++) {
       attackDamage += diceValue(6);
-      dialogue += ` He heaves his might frame, and spew out his mouth and nose pure fire from hell!  He deals ${attackDamage} to you!`;
     }
     dragon.usedFireBreath = true;
+    dialogue += ` He heaves his might frame, and spew out his mouth and nose pure fire from hell!  He deals ${attackDamage} to you!`;
   } else {
 
     attackDamage = diceValue(10) + dragon.str;
@@ -47,7 +47,7 @@ function dragonAttack() {
 
   player.hitPoints -= attackDamage;
   renderStatsSection();
-  document.getElementById('dynamic-dialogue').innerHTML = dialogue;
+  document.getElementById('dynamic-dialogue').innerHTML += dialogue;
 
 }
 function basicAttack() {
