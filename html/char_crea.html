@@ -5,30 +5,32 @@
 
   <title>Character Creation</title>
   <link href="../css/reset.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <link href="../css/character.css" rel="stylesheet">
 </head>
 
 <body>
+  <img id="table-top" src="../table-top-cropped.jpg" alt="table top">
+  <img id="d20-img" src="../d20.png" alt="D20">
   <header>
     <p id="dialog-text">Hello <span id=player-name></span> This is the character creation page.</p>
     <input id="next-button" type="button" value="Next" onclick="handleNext()" />
     <section id="dice-roller">
-      <img>
+      <img id="dice-img-roller" src="../Three_six-sided_dice.jpg" alt="3 dice">
       <h2 id="dice-roll-header"></h2>
-      <h3 id="dice-value">NumberGoesHere</h3>
+      <h3 id="dice-value"></h3>
       <!-- <form> -->
       <div id="button-roller">
 
-        <input type="button" value="Roll Dice yo!" onclick="handleRolls()" />
+        <input id="roll-dice-yo" type="button" value="Roll Dice yo!" onclick="handleRolls()" />
       </div>
       <!-- </form> -->
     </section>
-    <a href="../html/open.html">Open Page</a>
-    <a href="../index.html">Landing Page</a>
   </header>
   <main>
     <section id="stat-container">
       <ul id="stat-list">
+        <!-- <h2>Stat List:</h2> -->
         <li id="str" >
           <h4 class="stats">STR</h4>
           <h5></h5>
@@ -58,6 +60,7 @@
     <section id="saving-throws-container">
       <div id="saving-throws">
         <ul id="st-list">
+          <!-- <h2>Saving Throws:</h2> -->
           <li id="str-st">
             <h4 class="stats">STR</h4>
             <h5>400</h5>
@@ -87,6 +90,7 @@
     </section>
     <section id="skills-container">
       <div id="skills">
+        <!-- <h2>Abilities:</h2> -->
         <ul id="s-str">STR
           <li>Athletics: 0</li>
         </ul>
@@ -134,6 +138,7 @@
     </section>
     <section id="other-attributes">
       <ul id="other-list">
+        <!-- <h2>Other Attributes:</h2> -->
         <li id="armor">
           <h4 class="stats">ARMOR</h4>
           <h5>12</h5>
@@ -158,11 +163,11 @@
     </section>
     <section id="attacks-equipment">
       <div id="attacks">
-        <h4>ATTACKS</h4>
+        <h2>ATTACKS</h2>
         <p>Nothing</p>
       </div>
       <div id="equipment">
-        <h4>EQUIPMENT</h4>
+        <h2>EQUIPMENT</h2>
         <!-- <p id='equipment'>Cha ching with the Bling Bling</p> -->
       </div>
     </section>
