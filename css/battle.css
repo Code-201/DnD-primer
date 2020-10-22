@@ -1,0 +1,106 @@
+body{
+
+  background-image: url("../img/Vulcano Night.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(55, 58, 58);
+}
+
+p, li, button, input{
+
+  font-family: 'VT323', monospace;
+  font-size: 25px;
+
+}
+
+.upperSection{
+  margin: 0 auto;
+  display: flex;
+  width: fit-content;
+
+}
+
+.statsStyle{
+    width: 220px;
+    height: 270px;
+    color: white;
+    background-color: black;
+    opacity: .8;
+    margin-top: 30px;
+    margin-left: 30px;
+    border-style: inset;
+    border-color: brown;
+    border-width: 10px;
+    padding: 10px;
+    /* display: flex; */
+
+}
+
+.dmBoxStyle{
+    
+  /* top: 100px;
+  left: 400px; */
+  float: right;
+  width: 500px;
+  height: 250px;
+  margin-top: 30px;
+  margin-left: 20px;
+  color: white;
+  background-color: black;
+  opacity: .8;
+  border-style: inset;
+  border-color: brown;
+  border-width: 10px;
+  padding: 10px;
+
+}
+
+.lowerSection{
+
+  margin: 0 auto;
+  display: flex;
+  width: fit-content;
+
+}
+
+.diceBoxStyle{
+
+  width: 220px;
+  height: 80px;
+  color: white;
+  background-color: black;
+  opacity: .8;
+  margin-top: 60px;
+  margin-left: 30px;
+  border-style: inset;
+  border-color: brown;
+  border-width: 10px;
+  padding: 10px;
+  
+}
+
+
+button{
+  border-style: solid;
+  border-color: brown;
+  border-width: 5px;
+  width: 60px;
+
+}
+
+
+.userBoxStyle{
+
+  width: 500px;
+  height: 200px;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: white;
+  background-color: black;
+  opacity: .8;
+  border-style: inset;
+  border-color: brown;
+  border-width: 10px;
+  padding: 10px;
+
+}
