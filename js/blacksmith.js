@@ -1,7 +1,5 @@
 'use strict';
 
-//TO-DO: RE SEND CHARACTER DATA TO LOCAL STORAGE TO UPDATE ARMOR/ATTACK/ETC.
-
 //Global Variables:
 //variable for easy access of each section:
 var statsSection = document.getElementById('stats');
@@ -30,8 +28,8 @@ document.getElementById('lightArmorButton').addEventListener('click', handleLigh
 
 //event listener for acquisition
 document.getElementById('steal').addEventListener('click', handleSteal);
-// document.getElementById('buy').addEventListener('click', handleBuy);
-// document.getElementById('intimidate').addEventListener('click', handleIntimidate);
+document.getElementById('buy').addEventListener('click', handleBuy);
+document.getElementById('intimidate').addEventListener('click', handleIntimidate);
 
 
 // retrieves character info from storage
@@ -48,7 +46,7 @@ function renderStatsSection() {
 function renderPStats() {
 
   var statsNames = ['Name: ', 'Race: ', 'Hit Points: ', 'AC: ', 'Gold: '];
-  var statsValues = [player.name, player.race, player.hitPoints, player.armor, player.equipment];
+  var statsValues = [player.name, player.race, player.hitPoints, player.armor, player.equipment[0]];
   for (var i = 0; i < statsNames.length; i++) {
     var newP = document.createElement('p');
     newP.textContent = statsNames[i] + statsValues[i];
@@ -102,6 +100,9 @@ function renderUserSection() {
 
   if (nextNext === 4) {
     displayChoice2();
+  }
+  if (nextNext === 5) {
+    document.getElementById('armorAcquisition').innerHTML = '';
   }
 
   if (nextNext === usersDialogue.length) {
@@ -211,17 +212,53 @@ function displayChoice2() {
 }
 
 function handleSteal() {
-  var stealDifficultyClass = 13;
+  var stealDifficultyClass = 1;
   var calculatedRoll = calcRoll(1, recentRoll, 'sleight of hand');
+  var resultsContainer = document.getElementById('attemptResult');
   // if calulated > difficultyclass
   //disable steal and intimidate
   if (calculatedRoll < stealDifficultyClass) {
-    var dmSection = document.getElementById('dmBox');
-    dmSection.textContent = 'You suck at stealing. Now you have to buy it.';
+    resultsContainer.textContent = 'You suck at stealing. Now you have to buy it.';
+
+    document.getElementById('steal').removeEventListener('click', handleSteal);
+    document.getElementById('intimidate').removeEventListener('click', handleIntimidate);
+  } else {
+    renderStatsSection();
+    resultsContainer.textContent = 'you stole it';
+    nextButtonDisabled(false);
   }
 
   console.log(recentRoll);
   console.log(calculatedRoll);
+}
+
+
+function handleIntimidate() {
+  var intimidateDifficultyClass = 25;
+  var calculatedRoll = calcRoll(1, recentRoll, 'intimidate');
+  var resultsContainer = document.getElementById('attemptResult');
+
+  if (calculatedRoll < intimidateDifficultyClass) {
+    resultsContainer.textContent = 'You could not intimidate for it. Now you have to buy it';
+
+    document.getElementById('steal').removeEventListener('click', handleSteal);
+    document.getElementById('intimidate').removeEventListener('click', handleIntimidate);
+  } else {
+    renderStatsSection();
+    resultsContainer.textContent = 'you were able to intimidate them for it';
+    nextButtonDisabled(false);
+  }
+
+  console.log('whatever');
+
+}
+
+function handleBuy() {
+  player.equipment[0] = player.equipment[0] - 10;
+  renderStatsSection();
+  document.getElementById('attemptResult').textContent = 'you bought the armor for 10 gold';
+  console.log(player.equipment[0]);
+  nextButtonDisabled(false);
 }
 
 function nextButtonDisabled(isDisabled) {
@@ -238,3 +275,4 @@ function nextButtonDisabled(isDisabled) {
 renderStatsSection();
 renderDmSection();
 renderUserSection();
+saveCharacter(player);
