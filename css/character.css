@@ -1,0 +1,147 @@
+body{
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  font-size-adjust: .5;
+  font-weight: bold;
+  max-width: auto;
+  margin: 50px;
+  max-height: auto;
+  text-align: center;
+  /* border: 3px groove red; */
+}
+
+#d20-img{
+  z-index: 0;
+  opacity: 0.1;
+  position: absolute;
+  top: 0px;
+  left: 25%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 45%;
+}
+#table-top{
+  z-index: 0;
+  opacity: 0.4;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+}
+
+header{
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: auto auto;
+  width: auto;
+  max-width: auto;
+  justify-content: center;
+  text-align: left;
+}
+
+#dialog-text{
+  height: 200px;
+  width: 500px;
+  justify-self: center;
+  align-content: center;
+}
+
+#next-button{
+  width: 80px;
+  height:40px; 
+  position: absolute;
+  top:150px; 
+  left:44.5%; 
+  z-index:2;
+  border: 3px groove red;
+  font-size: 20px;
+  font-size-adjust: .5;
+  font-family: 'VT323', monospace;
+}
+
+#roll-dice-yo{
+  font-size: 20px;
+  font-size-adjust: .5;
+  font-family: 'VT323', monospace;
+
+}
+
+#dice-roller{
+  grid-column: 2;
+  grid-row: 1;
+  /* border: 3px groove red; */
+  width: 130px;
+  justify-content: center;
+  align-content: center;
+  place-content: center;
+  text-align: center;
+  z-index: 2;
+}
+
+#dice-img-roller{
+  width: 130px;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+#dice-value{
+  position: absolute;
+  top: 70px;
+  right: 34.5%;
+  font-size: 100px;
+}
+
+main{
+  display: grid;
+  grid-template-columns: 200px 200px 200px auto 200px 200px;
+  column-gap: 10px;
+  /* border: 3px groove red; */
+  
+}
+
+h2{
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+
+#skills{
+  padding: 5px;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto;
+  place-self: center;
+  column-gap: 10px;
+  
+}
+
+ul > li{
+  padding: 5px;
+  border: 2px inset rgb(202, 48, 48);
+  
+  place-self: center;
+}
+
+#race-class-charGraphic{
+  font-size: 20px;
+  font-size-adjust: .5;
+  font-family: 'VT323', monospace;
+  border: 3px inset red;
+}
+
+#attacks-equipment{
+  display: grid;
+  grid-template-rows: auto auto;
+
+}
+
+#attacks{
+  border: 3px inset red;
+}
+
+#equipment{
+  border: 3px inset red;
+}
+
+
+
