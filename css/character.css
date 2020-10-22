@@ -143,5 +143,12 @@ ul > li{
   border: 3px inset red;
 }
 
-
-
+#table-top{
+  z-index: 0;
+}
+#d20-img{
+  z-index: 1;
+}
+#dialog-text{
+  z-index: 2;
+}

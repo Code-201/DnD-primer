@@ -4,7 +4,6 @@ var player = retrieveCharacter();
 var basicAttackTutorialRun = true;
 var secondWinRunTutorial = true;
 var dragon = new Enemy('Karl', 75);
-player.weaponName = 'Longbow';
 var statsSection = document.getElementById('stats');
 var usedSecondWind = false;
 var recentRoll = 1;
