@@ -171,6 +171,7 @@ function handleHeavyArmor() {
   document.getElementById('armorChoiceButtons').innerHTML = '';
 
   nextButtonDisabled(false);
+  renderStatsSection();
 }
 
 //updates the players armor and weapon stat to reflect newly aquired items
@@ -191,6 +192,7 @@ function handleLightArmor() {
   document.getElementById('armorChoiceButtons').innerHTML = '';
 
   nextButtonDisabled(false);
+  renderStatsSection();
 }
 
 function displayChoice2() {
