@@ -3,7 +3,7 @@
 var player = retrieveCharacter();
 var basicAttackTutorialRun = true;
 var secondWinRunTutorial = true;
-var dragon = new Enemy('Karl', 75);
+var dragon = new Enemy('Karl', 20);
 var statsSection = document.getElementById('stats');
 var usedSecondWind = false;
 var recentRoll = 1;
@@ -49,14 +49,21 @@ function dragonAttack() {
   if (!dragon.usedFireBreath) {
     if(!saveThrow){
       saveThrow = true;
-      dialogue += 'The dragon leans forward and opens his large toothy mouth. As the heat starts pooling around you, you realize he is preparing for a fiery breath attack! Make a DEXTERITY SAVING TRHOW to avoid some of the damage! (Roll a D20, and we will add your dexterity mod for you.)';
+      dialogue += 'The dragon leans forward and opens his large toothy mouth. As the heat starts pooling around you, you realize he is preparing for a fiery breath attack! Make a DEXTERITY SAVING THROW to avoid some of the damage! (Roll a D20, and we will add your dexterity mod for you.)';
       renderSaveThrowButton();
     }else{
       for (var i = 0; i < 2; i++) {
         attackDamage += diceValue(6);
       }
-      dragon.usedFireBreath = true;
-      dialogue += ` He heaves his mighty frame, and spew out his mouth and nose pure fire from hell!  He deals ${attackDamage} to you!`;
+      if(saveThrowValue < 12){
+        dragon.usedFireBreath = true;
+        dialogue += ` You fail your saving throw! He heaves his mighty frame, and spew out his mouth and nose pure fire from hell!  He deals ${attackDamage} to you!`;
+      }else{
+        dragon.usedFireBreath = true;
+        attackDamage = Math.floor(attackDamage / 2);
+        dialogue += ` The fire blast blows around you but you dodge behind a rock at the last second and reduce some damage. He only hits you for ${attackDamage} damage.`;
+      }
+      document.getElementById('saveThrowButtonContainer').innerHTML = '';
     }
   } else {
 
@@ -71,19 +78,20 @@ function dragonAttack() {
   player.hitPoints -= attackDamage;
   renderStatsSection();
   document.getElementById('dragon-speak').innerHTML = dialogue;
-
 }
 
 function renderSaveThrowButton(){
   var saveThrowButton = document.createElement('input');
   saveThrowButton.setAttribute('value', 'Saving Throw');
   saveThrowButton.setAttribute('type', 'button');
-  saveThrowButton.setAttribute('onclick', 'handleSaveThrow');
-  document.getElementById(saveThrowButtonContainer).appendChild(saveThrowButton);
+  saveThrowButton.setAttribute('onclick', 'handleSaveThrow()');
+  document.getElementById('saveThrowButtonContainer').appendChild(saveThrowButton);
 }
 
 function handleSaveThrow(){
+  console.log('I live!');
   saveThrowValue = recentRoll + player.modArray[1];
+  dragonAttack();
 }
 
 function basicAttack() {
