@@ -2,9 +2,7 @@
 var player;
 
 
-function diceValue(sides) {
-  return Math.floor((Math.random() * sides)) + 1;
-}
+
 //Character Constructor and Prototypes
 function Character(name, hitPoints = 100) {
   //fighter
@@ -24,6 +22,7 @@ function Character(name, hitPoints = 100) {
   this.equipment = [100]; // GOLD
   this.equipmentName = ['Gold'];
   this.speed;
+  this.didWin = false;
 
 }
 
@@ -59,7 +58,7 @@ function Enemy(name, hitPoints = 200) {
   this.usedFireBreath = false;
   this.saveThrow = 1;
   this.initiative = 2;
-  this.str = 100;
+  this.str = 4;
 }
 
 
@@ -74,10 +73,10 @@ function sumArray(array) {
 //Storage Functions
 function retrieveCharacter(storageKey = 'character') { //Normally 'character'
   var characterFromLocalStorage = localStorage.getItem(storageKey);
-  console.log('from Storage: ' + characterFromLocalStorage);
+
   if (characterFromLocalStorage) {
     player = rebuildInstanceForObjLiteral(JSON.parse(characterFromLocalStorage));
-    console.log('player: ' + player.name);
+    console.log('Retrieved Player: ' + player.name);
     // } else {
     //   //Re run character information through constructor
     //   player = new Character(parsedCharacter[0].name, parsedCharacter.hitPoints);
@@ -106,11 +105,17 @@ function rebuildInstanceForObjLiteral(parsedObj) {
   player.proficiencyBonus = parsedObj.proficiencyBonus;
   player.proficiencyArray = parsedObj.proficiencyArray;
   player.armor = parsedObj.armor;
+  player.weaponName = parsedObj.weaponName;
   player.weapon = parsedObj.armor;
   player.useTenSided = parsedObj.useTenSided;
   player.equipment = parsedObj.equipment; // GOLD
+  player.equipmentName = parsedObj.equipmentName;
   player.speed = parsedObj.speed;
+  player.didWin = parsedObj.didWin;
   return player;
+}
+function diceValue(sides) {
+  return Math.floor((Math.random() * sides)) + 1;
 }
 
 function calcRoll(stat, baseNumber, prof = 'zero') { //stat: array index of the modifier we need, die: max for rollDice function, prof: name of skill used
