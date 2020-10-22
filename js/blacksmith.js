@@ -171,7 +171,7 @@ function handleHeavyArmor() {
   document.getElementById('armorChoiceButtons').innerHTML = '';
 
   nextButtonDisabled(false);
-  renderStatsSection();
+
 }
 
 //updates the players armor and weapon stat to reflect newly aquired items
@@ -192,7 +192,7 @@ function handleLightArmor() {
   document.getElementById('armorChoiceButtons').innerHTML = '';
 
   nextButtonDisabled(false);
-  renderStatsSection();
+
 }
 
 function displayChoice2() {
@@ -231,6 +231,7 @@ function handleSteal() {
     renderStatsSection();
     resultsContainer.textContent = 'you stole it';
     nextButtonDisabled(false);
+    renderStatsSection();
   }
 
   console.log(recentRoll);
@@ -252,6 +253,7 @@ function handleIntimidate() {
     renderStatsSection();
     resultsContainer.textContent = 'you were able to intimidate them for it';
     nextButtonDisabled(false);
+    renderStatsSection();
   }
 
   console.log('whatever');
@@ -264,6 +266,7 @@ function handleBuy() {
   document.getElementById('attemptResult').textContent = 'you bought the armor for 10 gold';
   console.log(player.equipment[0]);
   nextButtonDisabled(false);
+  renderStatsSection();
 }
 
 function nextButtonDisabled(isDisabled) {
