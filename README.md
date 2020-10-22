@@ -90,6 +90,10 @@ Feature Tasks:
 
 ![Problem Domain](readme_support/domain_model.png)
 
+## Dungeons and Dragons Legal Disclaimer
+
+We are not endorsed or affiliated with Wizards of the Coast. No monetary profit is being made by the creators of this site. If you would like more information about Dungeons and Dragons, please visit ![https://dnd.wizards.com](https://dnd.wizards.com/) form more information.
+
 ### Author(s)
 
 + Kjell Overholt
