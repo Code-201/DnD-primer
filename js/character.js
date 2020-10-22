@@ -10,13 +10,8 @@ var nextClicks = 0;
 var diceClicks = 0;
 var player = new Character('bob', 100);
 player.name = prompt('Hold On Good Person!  Before you embark on your grand adventure we need to know by what words we should address you!');
-var dialogArray = [`Hey there ${player.name}! This is the character creation page.  You look like a fighter, so we will assign you the class fighter! Cool, right?` +
-  '  Ok, first thing is first.  These are the dice, go ahead and click \'NEXT\' and take some rolls!', 'These are your stats, they will be the sum'
-+ ' of three 10-sided dice rolls.  We will take the hard work out of it and sum it up for you.  So go ahead an roll for your initial stats', 'We are gonna set your Saving Throws' +
-' We will set these up. Math Math Math.', 'We will set your skills, since are a fighter, you can eat INTIMIDATE some rotten tomatoes so we will add some to your INTIMIDATE skill.  ' +
-'Since you have trained and done lots of pushups, you have a heightened PERCEPTION, so we will add to that!.', 'Now you can choose your Race <span id="raceClass"></span>. ' +
-'  there are tons to choose from, but for this scenario you can choose ELF or HUMAN.  We have already determined you are a FIGHTER class. After you select your race, click \'NEXT\'', 'These are other attributes. Armor, Equipment.  Don\'t worry about Attack, we will get to that later', ' But ' +
-'I suppose you need some money, don\'t we all, so here is 100 gold!  Your\'re welcome!', `Ok! You\'re all set ${player.name}!  Adventure waits for no one!  It all begins with the first step, so let\' STEP to it!`];
+var dialogArray = [`Hey there ${player.name}! This is the character creation page.  You look like a fighter, so we will assign you the class fighter! Cool, right? Ok, first thing is first.  These are the dice, go ahead and click \'NEXT\' and take some rolls!`, 'These are your stats, they will be the sum of three 10-sided dice rolls.  We will take the hard work out of it and sum it up for you.  So go ahead an roll for your initial stats', 'We are gonna set your Saving Throws.  We will set these up. Math Math Math.', 'We will set your skills, since are a fighter, you can eat INTIMIDATE some rotten tomatoes so we will add some to your INTIMIDATE skill.  Since you have trained and done lots of pushups, you have a heightened PERCEPTION, so we will add to that!.', 'Now you can choose your Race <span id="raceClass"></span>.  There are tons to choose from, but for this scenario you can choose ELF or HUMAN.  We have already determined you are a FIGHTER class. After you select your race, click \'NEXT\'', 'These are other attributes. Armor, Equipment.  Don\'t worry about Attack, we will get to that later', ' But I suppose you need some money, don\'t we all, so here is 100 gold!  Your\'re welcome!', `Ok! You\'re all set ${player.name}!  Adventure waits for no one!  It all begins with the first step, so let\' STEP to it!`];
+
 
 
 
@@ -146,7 +141,7 @@ function handleNext() {
 
   else {
     saveCharacter(player);
-    window.location.href = '/html/open.html';
+    window.location.href = '../html/open.html';
     console.log('Don\'t need this anymore');
   }
   //if (nextClicks === 6) {loadNextPage}
@@ -154,10 +149,10 @@ function handleNext() {
 }
 function setSavingThrows() {
   console.log('setSavingThrows');
-  for (var i = 0; i < player.statArray.length; i++) {
-    if (i === 0) { updateStat('st-list', i, player.statArray[i] + 2); }
-    else if (i === 2) { updateStat('st-list', i, player.statArray[i] + 2); }
-    else { updateStat('st-list', i, player.statArray[i]); }
+  for (var i = 0; i < player.modArray.length; i++) {
+    if (i === 0) { updateStat('st-list', i, player.modArray[i] + 2); }
+    else if (i === 2) { updateStat('st-list', i, player.modArray[i] + 2); }
+    else { updateStat('st-list', i, player.modArray[i]); }
   }
 
 
