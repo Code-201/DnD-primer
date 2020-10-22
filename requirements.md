@@ -18,9 +18,9 @@ DnD is fun and it encourages creativity, especially during a time where many are
 
 ## Scope (In/Out)
 
-**IN - What will your product do**
+### **IN - What will your product do**
 
-**Describe the individual features that your product will do.**
+### **Describe the individual features that your product will do.**
 
 - An introduction
 
@@ -30,7 +30,7 @@ DnD is fun and it encourages creativity, especially during a time where many are
 
 - Introductory scenario
 
-**High overview of each. Only need to list 4-5**
+### **High overview of each. Only need to list 4-5**
 
 - The introduction will give a general overview of what DnD is, when it was created and what the point of the game is. The introduction will also give credit to game creators and state the purpose of the application.
 
@@ -40,7 +40,7 @@ DnD is fun and it encourages creativity, especially during a time where many are
 
 - Users will be directed to navigate through a town, find themselves at a weapons shop and will be able to select their weapons of choice. As they do, so they will get to see how the game functions and be exposed to several kinds of game mechanics.
 
-**OUT - What will your product not do.**
+### **OUT - What will your product not do.**
 
 - Our product will not give players a substitute for an actual gaming experience.
 
@@ -48,7 +48,7 @@ DnD is fun and it encourages creativity, especially during a time where many are
 
 - Players will not have full access to all information available in the player's handbook.
 
-**Minimum Viable Product vs**
+### **Minimum Viable Product**
 
 What will your MVP functionality be?
 
@@ -60,7 +60,7 @@ Three pages:
 
 - Scenario page with information and prompt for action from a given list of choices and ability to randomly determine outcomes.
 
-**Stretch**
+### **Stretch**
 
 What stretch goals are you going to aim for?
 
