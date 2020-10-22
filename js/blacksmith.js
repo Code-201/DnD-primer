@@ -204,7 +204,7 @@ function displayChoice2() {
   nextButtonDisabled(true);
 
   var steal = document.createElement('button');
-  steal.textContent = 'steal that shit!';
+  steal.textContent = 'steal it!';
   stealContainer.appendChild(steal);
 
   var buy = document.createElement('button');
@@ -218,7 +218,7 @@ function displayChoice2() {
 }
 
 function handleSteal() {
-  var stealDifficultyClass = 1;
+  var stealDifficultyClass = 13;
   var calculatedRoll = calcRoll(1, recentRoll, 'sleight of hand');
   var resultsContainer = document.getElementById('attemptResult');
   // if calulated > difficultyclass
@@ -241,7 +241,7 @@ function handleSteal() {
 
 
 function handleIntimidate() {
-  var intimidateDifficultyClass = 25;
+  var intimidateDifficultyClass = 13;
   var calculatedRoll = calcRoll(1, recentRoll, 'intimidate');
   var resultsContainer = document.getElementById('attemptResult');
 

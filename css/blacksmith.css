@@ -1,6 +1,9 @@
 body{
 
   background-image: url("../img/Example 1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(55, 58, 58);
 
 }
 
@@ -64,7 +67,7 @@ p, li, button, input{
 .diceBoxStyle{
 
   width: 220px;
-  height: 80px;
+  height: 90px;
   color: white;
   background-color: black;
   opacity: .8;
@@ -83,6 +86,7 @@ button{
   border-color: brown;
   border-width: 5px;
   width: 60px;
+  margin: 5px;
 
 }
 
@@ -100,5 +104,20 @@ button{
   border-color: brown;
   border-width: 10px;
   padding: 10px;
+
+}
+
+#armorChoiceButtons button{
+
+margin: 10px 10px 1px 30px;
+width: 200px;
+
+}
+
+#armorAcquisition button{
+
+
+  margin: 10px 10px 5px 40px;
+  width: 100px;
 
 }
