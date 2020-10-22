@@ -57,7 +57,7 @@ function insertRaceSelectionDrop() {
   opt1.textContent = "Human";
 
   var opt2 = document.createElement('option');
-  opt2.setAttribute('value', 'elf');
+  opt2.setAttribute('value', 'Elf');
   opt2.textContent = "Elf";
 
   selectElement.appendChild(optB);
