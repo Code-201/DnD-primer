@@ -3,7 +3,7 @@
 var player = retrieveCharacter();
 var basicAttackTutorialRun = true;
 var secondWinRunTutorial = true;
-var dragon = new Enemy('Karl', 200);
+var dragon = new Enemy('Karl', 75);
 player.weaponName = 'Longbow';
 var statsSection = document.getElementById('stats');
 var usedSecondWind = false;
@@ -12,20 +12,37 @@ var inBattle = false;
 var dodgeSuccess = false;
 
 function checkEndGame() {
+
+  if (player.hitPoints <= 0 || dragon.hitPoints <= 0) {
+    var parentElement = document.getElementById('dmBox');
+    var endofgameButton = document.createElement('input');
+    endofgameButton.setAttribute('type', 'button');
+    endofgameButton.setAttribute('onclick', 'offWeGo()');
+  }
+
   if (player.hitPoints <= 0) {
     console.log('The Battle has Been Lost!');
     inBattle = false;
+    endofgameButton.setAttribute('value', 'YOU FAILED');
     shutAllButtonsDown(true);
+    parentElement.appendChild(endofgameButton);
   } else if (dragon.hitPoints <= 0) {
     console.log(`${player.name}, the battle has been consummated. You are victorious!`);
+    endofgameButton.setAttribute('value', 'YOU WON!');
     inBattle = false;
     shutAllButtonsDown(true);
+    parentElement.appendChild(endofgameButton);
   }
+
   console.log('Dragon Hitpoints: ' + dragon.hitPoints);
   console.log('Player Hitpoints' + player.hitPoints);
 }
+function offWeGo() {
+  window.location.href = '../html/results.html';
+}
+
 function dragonAttack() {
-  debugger
+
   var dialogue = `Dragon Attacks!`;
   var attackDamage = 0;
   if (!dragon.usedFireBreath) {
@@ -44,10 +61,9 @@ function dragonAttack() {
     dialogue += `But you hid your pitiful self behind a rock and he only dealt ${attackDamage} of damage to you!`;
     dodgeSuccess = false;
   }
-
   player.hitPoints -= attackDamage;
   renderStatsSection();
-  document.getElementById('dynamic-dialogue').innerHTML += dialogue;
+  document.getElementById('dragon-speak').innerHTML = dialogue;
 
 }
 function basicAttack() {
@@ -76,13 +92,18 @@ function basicAttack() {
       attackPoints = calcRoll(0, recentRoll);
     }
 
-    var tutorial = `Ok!  You used your ${player.weaponName} on the ${dragon.name}!  You rolled a ${recentRoll} and added your +${statNumber} ${statName} modifier You did ${attackPoints} damage to ${dragon.name}!  Good Job!`
+    var tutorial = `Ok!  You used your ${player.weaponName} on the ${dragon.name}!  You rolled a ${recentRoll} and added your +${statNumber} ${statName} modifier You did ${attackPoints} damage to ${dragon.name}!  Good Job!`;
+    dragonAttack();
   }
   document.getElementById('dynamic-dialogue').innerHTML = tutorial;
+  //
+
+  //
+
   dragon.hitPoints -= attackPoints;
 
   checkEndGame();
-  dragonAttack();
+
 }
 
 function cower() {
@@ -95,6 +116,7 @@ function cower() {
     dialogue = `Awww.  Your to slow.  You can't cower in fear this time!`;
   }
   document.getElementById('dynamic-dialogue').innerHTML = dialogue;
+  document.getElementById('dragon-speak').innerHTML = '';
   dragonAttack();
 }
 
@@ -103,6 +125,9 @@ function secondWind() {
   if (!usedSecondWind) {
     player.hitPoints += recentRoll + player.modArray[2];
     document.getElementById('dynamic-dialogue').innerHTML = `You received your second wind!  Your CON modifier: ${player.modArray[2]} +  your roll of ${recentRoll} gains raises your HP to ${player.hitPoints}`;
+    //
+    document.getElementById('dragon-speak').innerHTML = '';
+    //
     usedSecondWind = true;
     buttonDisable('secondWind', true);
     renderStatsSection();
