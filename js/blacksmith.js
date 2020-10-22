@@ -127,6 +127,7 @@ function displayNextPageButton() {
   nextPageButton.setAttribute('type', 'submit');
   nextPageButton.setAttribute('value', 'Onward to battle!');
   nextPageForm.appendChild(nextPageButton);
+  saveCharacter(player);
 }
 
 //displays buttons for the first user choice
@@ -293,4 +294,4 @@ function nextButtonDisabled(isDisabled) {
 renderStatsSection();
 renderDmSection();
 renderUserSection();
-saveCharacter(player);
+
