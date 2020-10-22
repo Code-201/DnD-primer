@@ -228,6 +228,7 @@ function handleSteal() {
   } else {
     renderStatsSection();
     resultsContainer.textContent = 'you stole it';
+
     nextButtonDisabled(false);
   }
 
@@ -273,6 +274,16 @@ function nextButtonDisabled(isDisabled) {
     checkNext.disabled = false;
   }
 }
+
+// function stealButtonDisabled(isDisabled) {
+//   var stealAttempt = document.getElementById('stealContainer');
+//   if (isDisabled) {
+//     stealAttempt.disabled = true;
+
+//   } else {
+//     stealAttempt.disabled = false;
+//   }
+// }
 
 //function calls:
 renderStatsSection();
