@@ -1,0 +1,79 @@
+body{
+
+  background-image: url("../img/Forest.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(55, 58, 58);
+
+}
+
+h2,p{
+
+  font-family: 'VT323', monospace;
+  font-size: 17px;
+
+}
+
+h2{
+
+  font-family: 'VT323', monospace;
+  font-size: 30px;
+  display: inline;
+
+}
+
+header{
+
+  margin: 0 auto;
+  width: 400px;
+  font-family: 'VT323', monospace;
+  font-size: 50px;
+  text-align: center;
+  border-style: inset;
+  border-color: rgb(52, 236, 135);
+  border-width: 10px;
+  background-color: white;
+  padding: 10px;
+
+}
+
+.upperSection{
+  margin: 0 auto;
+  display: flex;
+  width: fit-content;
+
+}
+
+.about{
+    width: 300px;
+    height: 300px;
+    color: black;
+    background-color: white;
+    /* opacity: .8; */
+    margin-top: 30px;
+    margin-left: 30px;
+    border-style: inset;
+    border-color: rgb(52, 236, 135);
+    border-width: 10px;
+    padding: 10px;
+    /* display: flex; */
+
+}
+
+
+.lowerSection{
+
+  margin: 0 auto;
+  display: flex;
+  width: fit-content;
+
+}
+
+footer{
+
+  display: center;
+  width: 150px;
+  color: white;
+
+}
+

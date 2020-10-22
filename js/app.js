@@ -106,7 +106,7 @@ function rebuildInstanceForObjLiteral(parsedObj) {
   player.proficiencyArray = parsedObj.proficiencyArray;
   player.armor = parsedObj.armor;
   player.weaponName = parsedObj.weaponName;
-  player.weapon = parsedObj.armor;
+  player.weapon = parsedObj.weapon;
   player.useTenSided = parsedObj.useTenSided;
   player.equipment = parsedObj.equipment; // GOLD
   player.equipmentName = parsedObj.equipmentName;

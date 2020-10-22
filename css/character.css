@@ -3,22 +3,24 @@ body{
   font-size: 20px;
   font-size-adjust: .5;
   font-weight: bold;
-  max-width: auto;
-  margin: 50px;
-  max-height: auto;
+  max-width: 980px;
+  margin: 0 auto;
+  /* max-height: auto; */
   text-align: center;
+  
+  
   /* border: 3px groove red; */
 }
 
 #d20-img{
-  z-index: 0;
+  z-index: 1;
   opacity: 0.1;
   position: absolute;
-  top: 0px;
+  top: 15%;
   left: 25%;
   background-repeat: no-repeat;
-  background-size: contain;
-  width: 45%;
+  /* background-size: contain; */
+  width: 50%;
 }
 #table-top{
   z-index: 0;
@@ -27,11 +29,15 @@ body{
   top: 0px;
   left: 0px;
   background-repeat: no-repeat;
-  background-size: contain;
+  /* background-size: contain; */
+  background-size: cover;
   width: 100%;
 }
 
+/* //////////////////////////////START HEADER/////////////////// */
+
 header{
+  margin-top: 50px;
   display: grid;
   column-gap: 20px;
   grid-template-columns: auto auto;
@@ -42,10 +48,12 @@ header{
 }
 
 #dialog-text{
-  height: 200px;
+  z-index: 2;
+  height: 100px;
   width: 500px;
   justify-self: center;
   align-content: center;
+  position: relative;
 }
 
 #next-button{
@@ -53,7 +61,7 @@ header{
   height:40px; 
   position: absolute;
   top:150px; 
-  left:44.5%; 
+  left:55%; 
   z-index:2;
   border: 3px groove red;
   font-size: 20px;
@@ -77,10 +85,12 @@ header{
   align-content: center;
   place-content: center;
   text-align: center;
+  position: relative;
   z-index: 2;
 }
 
 #dice-img-roller{
+  
   width: 130px;
   z-index: 1;
   opacity: 0.6;
@@ -88,15 +98,20 @@ header{
 
 #dice-value{
   position: absolute;
-  top: 70px;
-  right: 34.5%;
+  top: 8px;
+  right: 35px;
+  z-index: 2;
   font-size: 100px;
 }
 
+/* ///////////////////start main///////////////////////// */
+
 main{
   display: grid;
-  grid-template-columns: 200px 200px 200px auto 200px 200px;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: auto auto;
   column-gap: 10px;
+  
   /* border: 3px groove red; */
   
 }
@@ -104,22 +119,50 @@ main{
 h2{
   text-decoration: underline;
   margin-bottom: 5px;
+  text-align: center;
+}
+
+#stat-container{
+  justify-self: center;
+}
+
+#saving-throws-container{
+  justify-self: center;
+}
+
+#other-attributes{
+  justify-self: center;
+}
+
+#skills-container{
+  justify-self: center;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: two;
 }
 
 #skills{
+  
   padding: 5px;
   display: grid;
-  grid-template-rows: auto auto auto auto auto;
+  grid-template-columns:auto auto auto auto auto;
   place-self: center;
+  justify-self: center;
   column-gap: 10px;
-  
+  border: 2px inset rgb(202, 48, 48);
+}
+
+ul{
+  text-align: left;
 }
 
 ul > li{
+  text-align: left;
   padding: 5px;
   border: 2px inset rgb(202, 48, 48);
-  
-  place-self: center;
+  width: 110px;
+  height: 50px;
 }
 
 #race-class-charGraphic{
@@ -141,14 +184,4 @@ ul > li{
 
 #equipment{
   border: 3px inset red;
-}
-
-#table-top{
-  z-index: 0;
-}
-#d20-img{
-  z-index: 1;
-}
-#dialog-text{
-  z-index: 2;
 }

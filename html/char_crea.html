@@ -16,9 +16,11 @@
     <p id="dialog-text">Hello <span id=player-name></span> This is the character creation page.</p>
     <input id="next-button" type="button" value="Next" onclick="handleNext()" />
     <section id="dice-roller">
-      <img id="dice-img-roller" src="../img/Three_six-sided_dice.jpg" alt="3 dice">
+      
+        <img id="dice-img-roller" src="../img/Three_six-sided_dice.jpg" alt="3 dice">
+        <h3 id="dice-value"></h3>
+      
       <h2 id="dice-roll-header"></h2>
-      <h3 id="dice-value"></h3>
       <!-- <form> -->
       <div id="button-roller">
 
@@ -29,7 +31,7 @@
   </header>
   <main>
     <section id="stat-container">
-      <h2>Stat List:</h2>
+      <h2>Stat List</h2>
       <ul id="stat-list">
         <li id="str">
 
@@ -60,7 +62,7 @@
     </section>
     <section id="saving-throws-container">
       <div id="saving-throws">
-        <h2>Saving Throws:</h2>
+        <h2>Saving Throws</h2>
         <ul id="st-list">
           <li id="str-st">
             <h4 class="stats">STR</h4>
@@ -90,8 +92,8 @@
       </div>
     </section>
     <section id="skills-container">
+      <h2>Skills</h2>
       <div id="skills">
-        <h2>Abilities:</h2>
         <ul id="s-str">STR
           <li>Athletics: 0</li>
         </ul>
@@ -124,10 +126,10 @@
     </section>
     <section id="race-class-charGraphic">
 
+      <h2>Select a Race</h2>
       <h2 id="characterName"></h2>
       <h2 id="characterRaceDisplay"></h2>
       <div id="race">
-        <h2>Select a Race:</h2>
         <!-- <label for="raceSelect"></label> -->
 
       </div>
@@ -135,7 +137,7 @@
       <div id="charGraphic"></div>
     </section>
     <section id="other-attributes">
-      <h2>Other Attributes:</h2>
+      <h2>Other Attributes</h2>
       <ul id="other-list">
         <li id="armor">
           <h4 class="stats">ARMOR</h4>
