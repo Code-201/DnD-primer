@@ -141,7 +141,7 @@ function handleNext() {
 
   else {
     saveCharacter(player);
-    window.location.href = '../html/open.html';
+    window.location.href = '/html/open.html';
     console.log('Don\'t need this anymore');
   }
   //if (nextClicks === 6) {loadNextPage}
