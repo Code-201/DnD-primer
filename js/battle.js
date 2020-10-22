@@ -9,6 +9,8 @@ var usedSecondWind = false;
 var recentRoll = 1;
 var inBattle = false;
 var dodgeSuccess = false;
+var saveThrow = false;
+var saveThrowValue = 0;
 
 function checkEndGame() {
 
@@ -45,14 +47,20 @@ function dragonAttack() {
   var dialogue = `Dragon Attacks!`;
   var attackDamage = 0;
   if (!dragon.usedFireBreath) {
-    for (var i = 0; i <= 7; i++) {
-      attackDamage += diceValue(6);
+    if(!saveThrow){
+      saveThrow = true;
+      dialogue += 'The dragon leans forward and opens his large toothy mouth. As the heat starts pooling around you, you realize he is preparing for a fiery breath attack! Make a DEXTERITY SAVING TRHOW to avoid some of the damage! (Roll a D20, and we will add your dexterity mod for you.)';
+      renderSaveThrowButton();
+    }else{
+      for (var i = 0; i < 2; i++) {
+        attackDamage += diceValue(6);
+      }
+      dragon.usedFireBreath = true;
+      dialogue += ` He heaves his mighty frame, and spew out his mouth and nose pure fire from hell!  He deals ${attackDamage} to you!`;
     }
-    dragon.usedFireBreath = true;
-    dialogue += ` He heaves his might frame, and spew out his mouth and nose pure fire from hell!  He deals ${attackDamage} to you!`;
   } else {
 
-    attackDamage = diceValue(10) + dragon.str;
+    attackDamage = diceValue(6) + dragon.str;
     dialogue += ` He lunges forward and wraps his maw around you frame and crunches you pancreas for ${attackDamage} point of damage!`;
   }
   if (dodgeSuccess === true) {
@@ -65,6 +73,19 @@ function dragonAttack() {
   document.getElementById('dragon-speak').innerHTML = dialogue;
 
 }
+
+function renderSaveThrowButton(){
+  var saveThrowButton = document.createElement('input');
+  saveThrowButton.setAttribute('value', 'Saving Throw');
+  saveThrowButton.setAttribute('type', 'button');
+  saveThrowButton.setAttribute('onclick', 'handleSaveThrow');
+  document.getElementById(saveThrowButtonContainer).appendChild(saveThrowButton);
+}
+
+function handleSaveThrow(){
+  saveThrowValue = recentRoll + player.modArray[1];
+}
+
 function basicAttack() {
   var attackPoints;
   attackPoints = calcRoll(1, recentRoll);
