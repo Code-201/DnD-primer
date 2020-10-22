@@ -7,7 +7,7 @@ var diceSection = document.getElementById('diceRoll');
 var dmSection = document.getElementById('dmBox');
 var recentRoll = 0;
 
-var player;
+
 
 //Event Listeners:
 document.getElementById('rollD20').addEventListener('click', function () {
@@ -33,7 +33,8 @@ document.getElementById('intimidate').addEventListener('click', handleIntimidate
 
 
 // retrieves character info from storage
-retrieveCharacter();
+
+var player = retrieveCharacter();
 
 //renders the player stats portion of the window
 function renderStatsSection() {
@@ -159,6 +160,7 @@ function handleHeavyArmor() {
 
   //update weapon mod
   player.weapon = player.modArray[0];
+  player.weaponName = 'Long Sword';
   console.log(player.modArray[0]);
   console.log(player.weapon);
 
@@ -180,6 +182,7 @@ function handleLightArmor() {
 
   //update weapon mod
   player.weapon = player.modArray[1];
+  player.weaponName = 'Longbow';
   console.log(player.modArray[1]);
   console.log(player.weapon);
 
