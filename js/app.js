@@ -5,7 +5,7 @@ var player;
 function diceValue(sides) {
   return Math.floor((Math.random() * sides)) + 1;
 }
-
+//Character Constructor and Prototypes
 function Character(name, hitPoints = 100) {
   //fighter
   this.name = name;
@@ -18,6 +18,7 @@ function Character(name, hitPoints = 100) {
   this.proficiencyBonus = 2;
   this.proficiencyArray = ['intimidate', 'perception', 'str-save', 'con-sav']; //set for Fighter
   this.armor = 8;
+  this.weaponName = '';
   this.weapon = 5;
   this.useTenSided = false;
   this.equipment = [100]; // GOLD
@@ -49,6 +50,19 @@ Character.prototype.modifierCalc = function () {
   }
   console.log(this.modArray);
 };
+//Enemy Constructor and Prototypes
+
+function Enemy(name, hitPoints = 200) {
+  this.name = name;
+  this.hitPoints = hitPoints;
+  this.armor;
+  this.usedFireBreath = false;
+  this.saveThrow = 1;
+  this.initiative = 2;
+  this.str = 100;
+}
+
+
 
 function sumArray(array) {
   var sum = array.reduce(function (a, b) {
@@ -69,6 +83,7 @@ function retrieveCharacter(storageKey = 'character') { //Normally 'character'
     //   player = new Character(parsedCharacter[0].name, parsedCharacter.hitPoints);
     //   //TODO: What to do if it can't find the object data in storage
   }
+  return player;
 }
 
 
@@ -98,7 +113,7 @@ function rebuildInstanceForObjLiteral(parsedObj) {
   return player;
 }
 
-function calcRoll(stat, baseNumber, prof) { //stat: array index of the modifier we need, die: max for rollDice function, prof: name of skill used
+function calcRoll(stat, baseNumber, prof = 'zero') { //stat: array index of the modifier we need, die: max for rollDice function, prof: name of skill used
   // var baseRoll = dieRoll;
   var finalRoll;
   var withMod = baseNumber + player.modArray[stat];
