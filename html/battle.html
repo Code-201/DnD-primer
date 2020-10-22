@@ -7,13 +7,32 @@
 
 <body>
 
-  <section class="stats"></section>
-  <section class="diceRoll"></section>
-  <section class="dmBox"></section>
-  <section class="dialogue"></section>
+  <section id="stats"></section>
+  <section id="diceRoll">
+
+    <input id="rollD20" type="button" value="Roll D20" onclick="diceRoll(20)">
+    <input id="rollD10" type="button" value="Roll D10" onclick="diceRoll(10)">
+    <input id="rollD8" type="button" value="Roll D8" onclick="diceRoll(8)">
+
+    <p id="displayResult"></p>
+  </section>
+
+
+  <section id="dmBox"></section>
+  <section id="dialogue">
+    <p id="standing-instructions">The fight is on! For choose an option. BASIC ATTACK, is attack. Second Wind, be
+      mindful you can regain some heath, but you can only use it once. Or you can try to cower, and evade some damage.
+      by not accepting what is actually happening. After you choose one option it will be the Dragon's turn! </p>
+    <p id="dynamic-dialogue"></p>
+
+    <input id="basicAttack" type="button" value="Attack" onclick="basicAttack()">
+    <input id="secondWind" type="button" value="Second Wind" onclick="secondWind()">
+    <input id="dodge" type="button" value="Cower like a baby" onclick="cower()">
+  </section>
 
 </body>
-<script src="js/app.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/battle.js"></script>
 <footer></footer>
 
 </html>

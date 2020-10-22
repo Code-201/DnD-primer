@@ -9,13 +9,14 @@ var doThreeRoll = false;
 var nextClicks = 0;
 var diceClicks = 0;
 var player = new Character('bob', 100);
-var dialogArray = [`Hey there adventurer! This is the character creation page.  You look like a fighter, so we will assign you the class fighter! Cool, right?` +
+player.name = prompt('Hold On Good Person!  Before you embark on your grand adventure we need to know by what words we should address you!');
+var dialogArray = [`Hey there ${player.name}! This is the character creation page.  You look like a fighter, so we will assign you the class fighter! Cool, right?` +
   '  Ok, first thing is first.  These are the dice, go ahead and click \'NEXT\' and take some rolls!', 'These are your stats, they will be the sum'
 + ' of three 10-sided dice rolls.  We will take the hard work out of it and sum it up for you.  So go ahead an roll for your initial stats', 'We are gonna set your Saving Throws' +
 ' We will set these up. Math Math Math.', 'We will set your skills, since are a fighter, you can eat INTIMIDATE some rotten tomatoes so we will add some to your INTIMIDATE skill.  ' +
 'Since you have trained and done lots of pushups, you have a heightened PERCEPTION, so we will add to that!.', 'Now you can choose your Race <span id="raceClass"></span>. ' +
 '  there are tons to choose from, but for this scenario you can choose ELF or HUMAN.  We have already determined you are a FIGHTER class. After you select your race, click \'NEXT\'', 'These are other attributes. Armor, Equipment.  Don\'t worry about Attack, we will get to that later', ' But ' +
-'I suppose you need some money, don\'t we all, so here is 100 gold!  Your\'re welcome!', `Ok! You\'re all set ${player.name}!  Let's get you some Armor and Weaponry`];
+'I suppose you need some money, don\'t we all, so here is 100 gold!  Your\'re welcome!', `Ok! You\'re all set ${player.name}!  Adventure waits for no one!  It all begins with the first step, so let\' STEP to it!`];
 
 
 
@@ -46,9 +47,35 @@ function updateSkills(parentId, attribute, listItem, dataString) {
   ulItems[listItem].innerHTML = dataString;
 }
 
-function getRaceSelection() {
-  //returns a string
-  return document.getElementById('race-choose').value;
+function insertRaceSelectionDrop() {
+
+  var selectElement = document.createElement('select');
+  selectElement.setAttribute('name', 'raceSelect');
+  selectElement.setAttribute('id', 'race-choose');
+  document.getElementById('raceClass').appendChild(selectElement);
+  var optB = document.createElement('option');
+  optB.setAttribute('value', 'None');
+  optB.textContent = "NoneSelected";
+
+  var opt1 = document.createElement('option');
+  opt1.setAttribute('value', 'human');
+  opt1.textContent = "Human";
+
+  var opt2 = document.createElement('option');
+  opt2.setAttribute('value', 'elf');
+  opt2.textContent = "Elf";
+
+  selectElement.appendChild(optB);
+  selectElement.appendChild(opt1);
+  selectElement.appendChild(opt2);
+
+
+
+
+  //  <select name="raceSelect" id="race-choose">
+  //          <option value="human">Human</option>
+  //          <option value="elf">elf</option>
+  //        </select>
 }
 
 function updateEquipment(idTag, equipArray, equipArrayName) {
@@ -109,9 +136,9 @@ function handleNext() {
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
   else if (nextClicks === 3) { displayDialog(3); setSkills(); }
   // //3: function setRaceAndClass
-  else if (nextClicks === 4) { displayDialog(4); raceAndClassDialog(); }
+  else if (nextClicks === 4) { displayDialog(4); raceAndClassDialog(); insertRaceSelectionDrop(); }
   // //4: function setOtherAttributes
-  else if (nextClicks === 5) { displayDialog(5); setOtherAttributes(); }
+  else if (nextClicks === 5) { setRaceAndClass(); displayDialog(5); setOtherAttributes(); }
   // //5: function setAttacksAndEquipment
   else if (nextClicks === 6) { displayDialog(6); setAttackAndEquipment(); }
   //6: Move on to the next Page
@@ -166,8 +193,6 @@ function raceAndClassDialog() {
 
 }
 function setOtherAttributes() {
-  setRaceAndClass();
-
   updateStat('other-list', 0, 8);
   updateStat('other-list', 1, player.modArray[1]);
   player.speed = 30;
@@ -184,7 +209,7 @@ function setRaceAndClass() {
   var playerClass = document.getElementById('playerClass');
   playerClass.textContent = 'Fighter';
   player.class = 'Fighter';
-  var raceSelect = getRaceSelection();
+  var raceSelect = document.getElementById('race-choose').value;
   raceHeader.textContent = raceSelect;
   player.race = raceSelect;
 
@@ -242,6 +267,8 @@ function rollButtonDisabled(isDisabled) {
 
 //Executable Code here :>
 ///TODO: create a prompt for user to enter thier Name, and store when creating the Character object
+
+
 displayDialog(0);
 
 
