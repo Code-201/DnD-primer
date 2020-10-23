@@ -131,7 +131,7 @@ function handleNext() {
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
   else if (nextClicks === 3) { displayDialog(3); setSkills(); }
   // //3: function setRaceAndClass
-  else if (nextClicks === 4) { debugger; displayDialog(4); raceAndClassDialog(); insertRaceSelectionDrop(); }
+  else if (nextClicks === 4) { displayDialog(4); raceAndClassDialog(); insertRaceSelectionDrop(); }
   // //4: function setOtherAttributes
   else if (nextClicks === 5) { setRaceAndClass(); displayDialog(5); setOtherAttributes(); }
   // //5: function setAttacksAndEquipment
@@ -141,7 +141,7 @@ function handleNext() {
 
   else {
     saveCharacter(player);
-    window.location.href = '/html/open.html';
+    window.location.href = '../html/open.html';
     console.log('Don\'t need this anymore');
   }
   //if (nextClicks === 6) {loadNextPage}
@@ -149,10 +149,10 @@ function handleNext() {
 }
 function setSavingThrows() {
   console.log('setSavingThrows');
-  for (var i = 0; i < player.statArray.length; i++) {
-    if (i === 0) { updateStat('st-list', i, player.statArray[i] + 2); }
-    else if (i === 2) { updateStat('st-list', i, player.statArray[i] + 2); }
-    else { updateStat('st-list', i, player.statArray[i]); }
+  for (var i = 0; i < player.modArray.length; i++) {
+    if (i === 0) { updateStat('st-list', i, player.modArray[i] + 2); }
+    else if (i === 2) { updateStat('st-list', i, player.modArray[i] + 2); }
+    else { updateStat('st-list', i, player.modArray[i]); }
   }
 
 
