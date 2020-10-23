@@ -65,8 +65,6 @@ p, li, button, input{
 
 .imageDiv{
 
-  /* border-style: solid; */
-  /* border-color: white; */
   border-width: 3px;
   width: 650px;
   height: 100px;
@@ -75,8 +73,6 @@ p, li, button, input{
 
 .dmBoxStyle{
     
-  /* top: 100px;
-  left: 400px; */
   float: right;
   width: 650px;
   height: 270px;
@@ -146,5 +142,13 @@ button{
   border-color: brown;
   border-width: 10px;
   padding: 2px;
+
+}
+
+footer{
+
+  margin: 0 auto;
+  width: 300px;
+  color: white;
 
 }

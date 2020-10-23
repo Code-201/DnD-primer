@@ -65,7 +65,7 @@ function returnHomeButton() {
 function returnToBattle() {
   var returnToBattle = document.createElement('input');
   returnToBattle.setAttribute('type', 'button');
-  returnToBattle.setAttribute('value', 'Reurn to Battle');
+  returnToBattle.setAttribute('value', 'Return to Battle');
   returnToBattle.setAttribute('onclick', 'handleReturnToBattle()');
   parentNavLinksElement.appendChild(returnToBattle);
 
@@ -78,7 +78,7 @@ function handleReturnHome() {
   window.location.href = '../index.html';
 }
 function handleReturnToBattle() {
-  window.location.href = '../js/battle.html';
+  window.location.href = '../html/battle.html';
 }
 
 function generateImage(didWin) {
