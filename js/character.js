@@ -9,8 +9,8 @@ var doThreeRoll = false;
 var nextClicks = 0;
 var diceClicks = 0;
 var player = new Character('bob', 100);
-player.name = prompt('Hold On Good Person!  Before you embark on your grand adventure we need to know by what words we should address you!');
-var dialogArray = [`Hey there ${player.name}! This is the character creation page.  You look like a fighter, so we will assign you the class fighter! Cool, right? Ok, first thing is first.  These are the dice, go ahead and click \'NEXT\' and take some rolls!`, 'These are your stats, they will be the sum of three 10-sided dice rolls.  We will take the hard work out of it and sum it up for you.  So go ahead an roll for your initial stats', 'We are gonna set your Saving Throws.  We will set these up. Math Math Math.', 'We will set your skills, since are a fighter, you can eat INTIMIDATE some rotten tomatoes so we will add some to your INTIMIDATE skill.  Since you have trained and done lots of pushups, you have a heightened PERCEPTION, so we will add to that!.', 'Now you can choose your Race <span id="raceClass"></span>.  There are tons to choose from, but for this scenario you can choose ELF or HUMAN.  We have already determined you are a FIGHTER class. After you select your race, click \'NEXT\'', 'These are other attributes. Armor, Equipment.  Don\'t worry about Attack, we will get to that later', ' But I suppose you need some money, don\'t we all, so here is 100 gold!  Your\'re welcome!', `Ok! You\'re all set ${player.name}!  Adventure waits for no one!  It all begins with the first step, so let\' STEP to it!`];
+player.name = prompt('Hold On! Hold On! Not to hasty, now!  Before you embark on your grand adventure we need to know by what words we should address you!');
+var dialogArray = [`Well then ${player.name}! Let us begin!  What you see before you is the Character Creation Page.  Hmmm, by the looks of you I suppose you'd be a good fighter. Yes, indeed!  So I will take the liberty to assigning FIGHTER as you class!  Excellent!  To your right we have the dice!  They are a very important part of your adventure!  They will determine many things, but first lets set up your STATS.  Click NEXT and give them a ROLL!`, 'The first column on the left is your STATS.  These are determined by the sum of three rolls of a SIX sided DICE!  I have taken the liberty to add these up with EVERY roll you make.  So go ahead and finish filling you your stats!  Your stats are STR (Strength), DEX (Dexterity), CON (Constitution), INT (Intelligence), WIS (Wisdom), and CHA (Charisma)', `${player.name}, next to your STATS we have the SAVING THROWS.  These pearls can save your bacon, but saving from possible.. well.. let's nasty consequences.  We have calculated some MODIFIERS that will help or hinder depending on your STATS.  Since you are a FIGHTER you get an extra 2 POINTS on your STR and CON!  Isn't that nice?  Let's carry on! `, 'A quick word on modifiers.  These are the hidden elements that affect... Well pretty much EVERYTHING!  If you have a quill and scroll, and a friend with more than ten fingers you can calculate them as follows: (STAT - 10) / 2.  Remember parenthesis matter.  Skills!  These are calculated the same way as Saving Throws, but since you can best Bruce Lee (FIGHTER), will will add additional PERCEPTION and INTIMIDATE point!', 'Oh! Remind me again, what are you?  I hope your not a Human, terribly obnoxious.  Indeed! <span id="raceClass"></span>.  There are many races to come from, for this scenario you can choose ELF or... a HUMAN.  We know you are a FIGHTER.  Stop showing off.  After you select your race, click \'NEXT\'', 'These are other attributes: Armor, Initiative, Speed, Hit points, and Proficiency Bonus.  Don\'t mind most of these, expect HITPOINTS these are important for obvious reason, you don\'t want to die.  Grabbing the abacus we determined you HITPOINTS(HP) like this: 10 + CON modifier. Don\'t fret about Attack, we will get to that later and you Equipment is just that.  Equipment.', ' But I suppose you need some money, don\'t we all, so here is 100 gold!  Huzaah.  Money.', `Very good ${player.name}!  Adventure waits for no person, place, or thing!  It all begins with the first step, so let\' STEP to it! CHOP CHOP.`];
 
 
 
@@ -127,7 +127,7 @@ function handleNext() {
   //0: function to handle statBuilding
   else if (nextClicks === 1) { setStats(); }
   //1: function setSavingThrows 
-  else if (nextClicks === 2) { player.modifierCalc(); displayDialog(2); setSavingThrows(); }
+  else if (nextClicks === 2) { player.modifierCalc(); displayDialog(2); setSavingThrows(); setHitPoints(); }
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
   else if (nextClicks === 3) { displayDialog(3); setSkills(); }
   // //3: function setRaceAndClass
@@ -171,8 +171,8 @@ function setSkills() {
   //TODO: update using a .includes to search the array for proficiencies to apply.
   var intimidate = document.getElementById('intimidate');
   var perception = document.getElementById('perception');
-  var calcIntimidate = player.statArray[5] + player.proficiencyBonus;
-  var calcPerception = player.statArray[4] + player.proficiencyBonus;
+  var calcIntimidate = player.modArray[5] + player.proficiencyBonus;
+  var calcPerception = player.modArray[4] + player.proficiencyBonus;
   intimidate.textContent = `Intimidate: ${calcIntimidate}`;
   perception.textContent = `Perception: ${calcPerception}`;
 
@@ -192,7 +192,7 @@ function setOtherAttributes() {
   updateStat('other-list', 1, player.modArray[1]);
   player.speed = 30;
   updateStat('other-list', 2, player.speed);
-  updateStat('other-list', 3, (10 + player.statArray[2]));
+  updateStat('other-list', 3, (player.hitPoints));
   updateStat('other-list', 4, player.proficiencyBonus);
 
 }
@@ -215,7 +215,7 @@ function setRaceAndClass() {
 function setStats() {
   nextButtonDisabled(true);
   doThreeRoll = true;
-  player.statArray[diceClicks] = diceRollNumber;
+  player.statArray[diceClicks] = diceRollNumber + 2;
   updateStat('stat-list', diceClicks, diceRollNumber);
   displayDialog(1);
 
@@ -259,7 +259,12 @@ function rollButtonDisabled(isDisabled) {
   }
 
 }
+function setHitPoints() {
+  debugger;
+  player.hitPoints = 10 + player.modArray[2];
+  player.maxHitPoints = player.hitPoints;
 
+}
 //Executable Code here :>
 ///TODO: create a prompt for user to enter thier Name, and store when creating the Character object
 

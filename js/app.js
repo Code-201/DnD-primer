@@ -4,10 +4,11 @@ var player;
 
 
 //Character Constructor and Prototypes
-function Character(name, hitPoints = 100) {
+function Character(name) {
   //fighter
   this.name = name;
-  this.hitPoints = hitPoints;
+  this.hitPoints = 0;
+  this.maxHitPoints = 0;
   this.race = '';
   this.class = 'warrior';
   this.statArray = [0, 0, 0, 0, 0, 0];
@@ -98,6 +99,7 @@ function rebuildInstanceForObjLiteral(parsedObj) {
   player = new Character(parsedObj.name);
   player.name = parsedObj.name;
   player.hitPoints = parsedObj.hitPoints;
+  player.maxHitPoints = parsedObj.maxHitPoints;
   player.race = parsedObj.race;
   player.class = parsedObj.class;
   player.statArray = parsedObj.statArray;

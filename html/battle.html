@@ -4,62 +4,92 @@
 <head>
   <title>Time For Battle!</title>
   <link href="../css/reset.css" rel="stylesheet">
-  <link href="../css/battle.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link href="../css/battle.css" rel="stylesheet">
+  <link href="../css/sprites.css" rel="stylesheet">
+
 </head>
 
 <body>
+  <!-- ///////////////////////////////////////////////////////////////////////////////// -->
+  <div class="instructions">
+    <p id="standing-instructions">The fight is on! For choose an option. BASIC ATTACK, is attack. Second Wind, be
+      mindful you can regain some heath, but you can only use it once. Or you can try to cower, and evade some
+      damage.
+      by not accepting what is actually happening. After you choose one option it will be the Dragon's turn! </p>
+  </div>
+
+  <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
   <div class="upperSection">
     <div class="statsStyle">
-      <section class="stats"></section>
+      <section id="stats"></section>
     </div>
 
 
     <div class="dmBoxStyle">
-      <section class="dmBox"></section>
+      <section id="dmBox"></section>
+      <section id="dialogue">
+
+        <div id="dmDia">
+          <p id="dynamic-dialogue"></p>
+
+        </div>
+
+
+
+        <section class="imageDiv">
+
+          <div class="fighter-sprite"></div>
+
+
+
+          <div class="dragon-sprite"></div>
+
+        </section>
+
+
+        <div id="dragonDia">
+          <p id="dragon-speak"></p>
+
+        </div>
+
+      </section>
     </div>
   </div>
-
-  <section id="stats"></section>
-  <section id="diceRoll">
-
-    <input id="rollD20" type="button" value="Roll D20" onclick="diceRoll(20)">
-    <input id="rollD10" type="button" value="Roll D10" onclick="diceRoll(10)">
-    <input id="rollD8" type="button" value="Roll D8" onclick="diceRoll(8)">
-
-    <p id="displayResult"></p>
-  </section>
-
-
-  <section id="dmBox"></section>
-  <section id="dialogue">
-    <p id="standing-instructions">The fight is on! For choose an option. BASIC ATTACK, is attack. Second Wind, be
-      mindful you can regain some heath, but you can only use it once. Or you can try to cower, and evade some damage.
-      by not accepting what is actually happening. After you choose one option it will be the Dragon's turn! </p>
-    <p id="dynamic-dialogue"></p>
-    <p id="dragon-speak"></p>
-
-    <input id="basicAttack" type="button" value="Attack" onclick="basicAttack()">
-    <input id="secondWind" type="button" value="Second Wind" onclick="secondWind()">
-    <input id="dodge" type="button" value="Cower like a baby" onclick="cower()">
-    <span id="saveThrowButtonContainer"></span>
-  </section>
 
 
 
   <!-- //////////////////// -->
   <div class="lowerSection">
     <div class="diceBoxStyle">
-      <section class="diceRoll"></section>
+      <section id="diceRoll">
+
+        <input id="rollD20" type="button" value="Roll D20" onclick="diceRoll(20)">
+        <input id="rollD10" type="button" value="Roll D10" onclick="diceRoll(10)">
+        <input id="rollD8" type="button" value="Roll D8" onclick="diceRoll(8)">
+
+        <p id="displayResult"></p>
+      </section>
     </div>
 
     <div class="userBoxStyle">
-      <section class="dialogue"></section>
+
+      <input id="basicAttack" type="button" value="Attack" onclick="basicAttack()">
+      <input id="secondWind" type="button" value="Second Wind" onclick="secondWind()">
+      <input id="dodge" type="button" value="Cower like a baby" onclick="cower()">
+      <span id="saveThrowButtonContainer"></span>
+
     </div>
   </div>
 </body>
 <script src="../js/app.js"></script>
 <script src="../js/battle.js"></script>
-<footer></footer>
+<footer>
+
+  <p>&copy; 2020 Froot Loops.</p>
+  <p>Don't Sue us!</p>
+
+</footer>
 
 </html>

@@ -5,11 +5,7 @@ body{
   font-weight: bold;
   max-width: 980px;
   margin: 0 auto;
-  /* max-height: auto; */
   text-align: center;
-  
-  
-  /* border: 3px groove red; */
 }
 
 #d20-img{
@@ -19,7 +15,7 @@ body{
   top: 15%;
   left: 25%;
   background-repeat: no-repeat;
-  /* background-size: contain; */
+  background-size: contain;
   width: 50%;
 }
 #table-top{
@@ -29,8 +25,7 @@ body{
   top: 0px;
   left: 0px;
   background-repeat: no-repeat;
-  /* background-size: contain; */
-  background-size: cover;
+  background-size: contain;
   width: 100%;
 }
 
@@ -53,15 +48,12 @@ header{
   width: 500px;
   justify-self: center;
   align-content: center;
-  position: relative;
 }
 
 #next-button{
   width: 80px;
   height:40px; 
-  position: absolute;
-  top:150px; 
-  left:55%; 
+  float: left;
   z-index:2;
   border: 3px groove red;
   font-size: 20px;

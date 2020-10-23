@@ -1,0 +1,80 @@
+body{
+  color: white;
+  background-color: black;
+  margin: 0 auto;
+  max-width: 980px;
+  font-family: 'VT323', monospace;
+  font-size: 40px;
+  text-align: left;
+  font-weight: bold;
+}
+header{
+  margin-bottom: 50px;
+  background-color: black;
+  color: red;
+  font-size: 50px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 250px auto;
+  grid-row: auto auto;
+  border: 3px groove red;
+}
+
+#logo{
+  width: 250px;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+h1{
+  grid-column-start: 2;
+  grid-row-start: 1;
+  align-self: center;
+  justify-self: center;
+}
+
+#header2{
+  grid-column-start: 2;
+  grid-row-start: 2;
+  align-self: start;
+  justify-self: center;
+}
+
+#header3{
+  grid-column-start: 2;
+  grid-row-start: 2;
+  align-self: center;
+  justify-self: center;
+}
+
+#button-container{
+  margin-top: 40px;
+ display: grid;
+ grid-template-columns: auto auto;
+ grid-template-rows: auto;
+}
+
+#new-adventure{
+  font-family: 'VT323', monospace;
+  font-size: 40px;
+  margin: 10px;
+}
+
+#saved-char{
+  font-family: 'VT323', monospace;
+  font-size: 40px;
+  margin: 10px;
+}
+
+footer{
+  margin-top: 200px;
+  font-size: 20px;
+}
+
+#about-us{
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  margin: 10px;
+}
+

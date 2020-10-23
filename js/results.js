@@ -2,9 +2,8 @@
 retrieveCharacter();
 
 
-var dialogArray = [`Congratulations Master ${player.name}! You have successfully defeated the Great Dragon EnemyName from the EnemyOrigin, you are well on your way to becoming a great adventurer! ` +
-  ' where does your intrepid soul take you now?', `The long fought battle has ended in tragedy.  ${player.name}, the mighty Dragon EnemyName has thrown you off the battlefield` +
-' and you lay upon the ground contemplating you next move.  The fate of this fair village rests with you.  What is your will?'];
+var dialogArray = [`Congratulations Master ${player.name}! You have successfully defeated the somewhat good Dragon Karl!  You are slowly making your way to becoming a great adventurer! Well then, where does your intrepid soul take you now?`, `The battle has ended in tragedy.  I suppose it makes sense with Harry's mediocre armament.  It did almost all fall off after the first attack.  Do you want to tape the pieces back together a battle again?  Take you time, it\'s all right, only the fate of this fair village rests with you, and as luck would have it, only you.  What is your will?`];
+
 var parentDialogElement = document.getElementById('results-dialog');
 var parentNavLinksElement = document.getElementById('navigation-links');
 var parentImageElement = document.getElementById('image-display');
@@ -65,7 +64,7 @@ function returnHomeButton() {
 function returnToBattle() {
   var returnToBattle = document.createElement('input');
   returnToBattle.setAttribute('type', 'button');
-  returnToBattle.setAttribute('value', 'Reurn to Battle');
+  returnToBattle.setAttribute('value', 'Return to Battle');
   returnToBattle.setAttribute('onclick', 'handleReturnToBattle()');
   parentNavLinksElement.appendChild(returnToBattle);
 
@@ -78,16 +77,16 @@ function handleReturnHome() {
   window.location.href = '../index.html';
 }
 function handleReturnToBattle() {
-  window.location.href = '../js/battle.html';
+  window.location.href = '../html/battle.html';
 }
 
 function generateImage(didWin) {
   var imgElement = document.createElement('img');
 
   if (didWin) {
-    imgElement.setAttribute('src', 'https://kirby.nintendo.com/assets/img/kirby-blast.jpg');
+    imgElement.setAttribute('src', '');
   } else {
-    imgElement.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/en/5/52/Star_Fox_SNES.jpg');
+    imgElement.setAttribute('src', '');
   }
   parentImageElement.appendChild(imgElement);
 }
