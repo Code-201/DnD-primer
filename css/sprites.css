@@ -4,7 +4,7 @@
   /* border: 1px solid purple; */
   width: 266px;
   height: 266px;
-  margin: -5% auto 0 auto; /* positioning tweak */
+  margin: -111px -43px; /* positioning tweak */
   background:  url('../img/dragonSpritesMirror.png') no-repeat 0 0%;
   animation: sprite 1s steps(4) infinite;
 }
@@ -19,7 +19,7 @@
   /* border: 1px solid purple; */
   width: 138px;
   height: 138px;
-  margin: -5% auto 0 auto; /* positioning tweak */
+  margin: -5% -1px; /* positioning tweak */
   background:  url('../img/FighterSpriteSheet.png') no-repeat 0 0%;
   animation: sprite 1s steps(4) infinite;
 }

@@ -1,16 +1,18 @@
 body{
+
+  background-image: url("../img/forest-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(55, 58, 58);
+
+}
+
+body{
   max-width: 980px;
   margin: 0 auto;
 }
 
-#open-background-img{
-  z-index: 0;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-repeat: no-repeat;
-  width: 100%;
-}
+
 
 p, li, button, input{
 
@@ -108,5 +110,13 @@ button{
   border-color: brown;
   border-width: 10px;
   padding: 10px;
+
+}
+
+footer{
+
+  margin: 0 auto;
+  width: 150px;
+  color: white;
 
 }
