@@ -1,8 +1,18 @@
 body{
 
-  background-image: url("../img/Background.png");
+  background-image: url("../img/forest-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(55, 58, 58);
 
 }
+
+body{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+
 
 p, li, button, input{
 
@@ -20,7 +30,7 @@ p, li, button, input{
 
 .statsStyle{
     width: 220px;
-    height: 270px;
+    height: auto;
     color: white;
     background-color: black;
     opacity: .8;
@@ -100,5 +110,13 @@ button{
   border-color: brown;
   border-width: 10px;
   padding: 10px;
+
+}
+
+footer{
+
+  margin: 0 auto;
+  width: 150px;
+  color: white;
 
 }
