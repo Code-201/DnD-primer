@@ -85,9 +85,9 @@ function generateImage(didWin) {
   var imgElement = document.createElement('img');
 
   if (didWin) {
-    imgElement.setAttribute('src', 'https://kirby.nintendo.com/assets/img/kirby-blast.jpg');
+    imgElement.setAttribute('src', '');
   } else {
-    imgElement.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/en/5/52/Star_Fox_SNES.jpg');
+    imgElement.setAttribute('src', '../img/loss-image.jpg');
   }
   parentImageElement.appendChild(imgElement);
 }
