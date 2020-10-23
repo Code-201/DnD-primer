@@ -100,3 +100,7 @@ We are not endorsed or affiliated with Wizards of the Coast. No monetary profit 
 + Mariko Alvarado
 + Ricardo Barcenas
 + JP Jones
+
+### Background art for scenario pages
+
++ https://edermunizz.itch.io/
