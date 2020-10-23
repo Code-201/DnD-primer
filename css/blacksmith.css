@@ -1,41 +1,16 @@
 body{
 
-  background-image: url("../img/Vulcano Night.png");
+  background-image: url("../img/Example 1.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgb(55, 58, 58);
-  max-width: 980px;
-  margin: 0 auto;
+
 }
 
 p, li, button, input{
 
   font-family: 'VT323', monospace;
   font-size: 25px;
-
-}
-
-
-.instructions{
-
-  width: 900px;
-  /* height: 270px; */
-  color: white;
-  background-color: black;
-  opacity: .8;
-  margin: 0 auto;
-  margin-top: 20px;
-  border-style: inset;
-  border-color: brown;
-  border-width: 10px;
-  padding: 10px;
-
-}
-
-.instructions p{
-
-  font-size: 20px;
-
 
 }
 
@@ -47,7 +22,7 @@ p, li, button, input{
 }
 
 .statsStyle{
-    width: 170px;
+    width: 220px;
     height: 270px;
     color: white;
     background-color: black;
@@ -62,22 +37,15 @@ p, li, button, input{
 
 }
 
-
-.imageDiv{
-
-  border-width: 3px;
-  width: 650px;
-  height: 100px;
-  
-}
-
 .dmBoxStyle{
     
+  /* top: 100px;
+  left: 400px; */
   float: right;
-  width: 650px;
-  height: 270px;
+  width: 500px;
+  height: 250px;
   margin-top: 30px;
-  margin-left: 30px;
+  margin-left: 20px;
   color: white;
   background-color: black;
   opacity: .8;
@@ -85,13 +53,6 @@ p, li, button, input{
   border-color: brown;
   border-width: 10px;
   padding: 10px;
-
-}
-
-
-.dmBoxStyle p{
-
-  font-size: 20px;
 
 }
 
@@ -105,13 +66,13 @@ p, li, button, input{
 
 .diceBoxStyle{
 
-  width: 290px;
-  height: 55px;
+  width: 220px;
+  height: 90px;
   color: white;
   background-color: black;
   opacity: .8;
-  margin-top: 20px;
-  margin-left: 10px;
+  margin-top: 60px;
+  margin-left: 30px;
   border-style: inset;
   border-color: brown;
   border-width: 10px;
@@ -125,30 +86,47 @@ button{
   border-color: brown;
   border-width: 5px;
   width: 60px;
+  margin: 5px;
 
 }
 
 
 .userBoxStyle{
 
-  width: 420px;
-  height: 70px;
+  width: 500px;
+  height: 330px;
   margin-top: 20px;
-  margin-left: 90px;
+  margin-left: 20px;
   color: white;
   background-color: black;
   opacity: .8;
   border-style: inset;
   border-color: brown;
   border-width: 10px;
-  padding: 2px;
+  padding: 10px;
 
 }
+
+#armorChoiceButtons button{
+
+margin: 10px 10px 1px 30px;
+width: 200px;
+
+}
+
+#armorAcquisition button{
+
+
+  margin: 10px 10px 5px 40px;
+  width: 100px;
+
+}
+
 
 footer{
 
   margin: 0 auto;
-  width: 300px;
+  width: 150px;
   color: white;
 
 }

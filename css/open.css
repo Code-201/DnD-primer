@@ -1,41 +1,23 @@
 body{
 
-  background-image: url("../img/Vulcano Night.png");
+  background-image: url("../img/forest-background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgb(55, 58, 58);
+
+}
+
+body{
   max-width: 980px;
   margin: 0 auto;
 }
+
+
 
 p, li, button, input{
 
   font-family: 'VT323', monospace;
   font-size: 25px;
-
-}
-
-
-.instructions{
-
-  width: 900px;
-  /* height: 270px; */
-  color: white;
-  background-color: black;
-  opacity: .8;
-  margin: 0 auto;
-  margin-top: 20px;
-  border-style: inset;
-  border-color: brown;
-  border-width: 10px;
-  padding: 10px;
-
-}
-
-.instructions p{
-
-  font-size: 20px;
-
 
 }
 
@@ -47,8 +29,8 @@ p, li, button, input{
 }
 
 .statsStyle{
-    width: 170px;
-    height: 270px;
+    width: 220px;
+    height: auto;
     color: white;
     background-color: black;
     opacity: .8;
@@ -62,22 +44,15 @@ p, li, button, input{
 
 }
 
-
-.imageDiv{
-
-  border-width: 3px;
-  width: 650px;
-  height: 100px;
-  
-}
-
 .dmBoxStyle{
     
+  /* top: 100px;
+  left: 400px; */
   float: right;
-  width: 650px;
-  height: 270px;
+  width: 500px;
+  height: 250px;
   margin-top: 30px;
-  margin-left: 30px;
+  margin-left: 20px;
   color: white;
   background-color: black;
   opacity: .8;
@@ -85,13 +60,6 @@ p, li, button, input{
   border-color: brown;
   border-width: 10px;
   padding: 10px;
-
-}
-
-
-.dmBoxStyle p{
-
-  font-size: 20px;
 
 }
 
@@ -105,13 +73,13 @@ p, li, button, input{
 
 .diceBoxStyle{
 
-  width: 290px;
-  height: 55px;
+  width: 220px;
+  height: 80px;
   color: white;
   background-color: black;
   opacity: .8;
-  margin-top: 20px;
-  margin-left: 10px;
+  margin-top: 60px;
+  margin-left: 30px;
   border-style: inset;
   border-color: brown;
   border-width: 10px;
@@ -131,24 +99,24 @@ button{
 
 .userBoxStyle{
 
-  width: 420px;
-  height: 70px;
+  width: 500px;
+  height: 200px;
   margin-top: 20px;
-  margin-left: 90px;
+  margin-left: 20px;
   color: white;
   background-color: black;
   opacity: .8;
   border-style: inset;
   border-color: brown;
   border-width: 10px;
-  padding: 2px;
+  padding: 10px;
 
 }
 
 footer{
 
   margin: 0 auto;
-  width: 300px;
+  width: 150px;
   color: white;
 
 }

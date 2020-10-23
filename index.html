@@ -3,30 +3,45 @@
 
 <head>
   <title>Landing</title>
+  <link href="css/reset.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link href="css/landing.css" rel="stylesheet">
+
 </head>
 
 <body>
 
   <header>
-    <h1>Dungeons and Dragons 5th Edition Primer</h1>
-    <img src="logo" alt="logo">
+    <img id="logo" src="img/illo4.jpg" alt="logo">
+    <h1>Dungeons and Dragons</h1>
+    <h2 id="header2">5th Edition</h2>
+    <h2 id="header3">Primer</h2>
   </header>
   <main>
-    <section>
-      <p>Greetings</p>
+    <section id="introduction">
+      <p> </p>
     </section>
-    <section>
-      <button><input type="submit" value="Brand new adventure!"></button>
-      <button><input type="submit" value="I'll use my saved character!"></button>
-      <a href="char_crea.html">Character Creation Page</a>
-      <a href="scenario.html">Scenario Page</a>
+    <section id="button-container">
+      <form action="html/char_crea.html">
+        <input id="new-adventure" type="submit" value="Brand New Adventure" />
+      </form>
+      <form action="html/open.html">
+        <input id="saved-char" type="submit" value="I'll use my saved character!!" />
+      </form>
     </section>
   </main>
   <footer>
-    <p>disclaimer</p>
-  </footer>
-  <script src="js/app.js"></script>
-</body>
+    <form action="html/about_us.html">
+      <input id="about-us" type="submit" value="About your developers" />
+    </form>
+    <p>We are not endorsed or affiliated with Wizards of the Coast. No monetary profit is being made by the creators of
+      this site. If you would like more information about Dungeons and Dragons, please visit <a
+        href="https://dnd.wizards.com/">Wizards of the Coast</a>.</p>
 
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/index.js"></script>
+</body>
 
 </html>

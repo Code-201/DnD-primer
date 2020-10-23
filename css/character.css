@@ -1,0 +1,179 @@
+body{
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  font-size-adjust: .5;
+  font-weight: bold;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#d20-img{
+  z-index: 1;
+  opacity: 0.1;
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 50%;
+}
+#table-top{
+  z-index: 0;
+  opacity: 0.4;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+}
+
+/* //////////////////////////////START HEADER/////////////////// */
+
+header{
+  margin-top: 50px;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: auto auto;
+  width: auto;
+  max-width: auto;
+  justify-content: center;
+  text-align: left;
+}
+
+#dialog-text{
+  z-index: 2;
+  height: 100px;
+  width: 500px;
+  justify-self: center;
+  align-content: center;
+}
+
+#next-button{
+  width: 80px;
+  height:40px; 
+  float: left;
+  z-index:2;
+  border: 3px groove red;
+  font-size: 20px;
+  font-size-adjust: .5;
+  font-family: 'VT323', monospace;
+}
+
+#roll-dice-yo{
+  font-size: 20px;
+  font-size-adjust: .5;
+  font-family: 'VT323', monospace;
+
+}
+
+#dice-roller{
+  grid-column: 2;
+  grid-row: 1;
+  /* border: 3px groove red; */
+  width: 130px;
+  justify-content: center;
+  align-content: center;
+  place-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+#dice-img-roller{
+  
+  width: 130px;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+#dice-value{
+  position: absolute;
+  top: 8px;
+  right: 35px;
+  z-index: 2;
+  font-size: 100px;
+}
+
+/* ///////////////////start main///////////////////////// */
+
+main{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  
+  /* border: 3px groove red; */
+  
+}
+
+h2{
+  text-decoration: underline;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+#stat-container{
+  justify-self: center;
+}
+
+#saving-throws-container{
+  justify-self: center;
+}
+
+#other-attributes{
+  justify-self: center;
+}
+
+#skills-container{
+  justify-self: center;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: two;
+}
+
+#skills{
+  
+  padding: 5px;
+  display: grid;
+  grid-template-columns:auto auto auto auto auto;
+  place-self: center;
+  justify-self: center;
+  column-gap: 10px;
+  border: 2px inset rgb(202, 48, 48);
+}
+
+ul{
+  text-align: left;
+}
+
+ul > li{
+  text-align: left;
+  padding: 5px;
+  border: 2px inset rgb(202, 48, 48);
+  width: 110px;
+  height: 50px;
+}
+
+#race-class-charGraphic{
+  font-size: 20px;
+  font-size-adjust: .5;
+  font-family: 'VT323', monospace;
+  border: 3px inset red;
+}
+
+#attacks-equipment{
+  display: grid;
+  grid-template-rows: auto auto;
+
+}
+
+#attacks{
+  border: 3px inset red;
+}
+
+#equipment{
+  border: 3px inset red;
+}
