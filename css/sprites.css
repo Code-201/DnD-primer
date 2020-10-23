@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .dragon-sprite {
   float: right;
@@ -6,6 +7,33 @@
   height: 266px;
   margin: -111px -43px; /* positioning tweak */
   background:  url('../img/dragonSpritesMirror.png') no-repeat 0 0%;
+=======
+ *{
+   background-color: indianred;
+ }
+ .lamp3 {
+  border: 1px solid purple;
+  width: 74px;
+  height: 74px;
+  margin: -5% auto 0 auto; /* positioning tweak */
+  background:  url('/spritesheet.png') no-repeat 0 0%;
+  animation: sprite 1s steps(3) infinite;
+}
+
+@keyframes sprite {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+
+
+
+.dragon-sprite {
+  border: 1px solid purple;
+  width: 266px;
+  height: 266px;
+  margin: -5% auto 0 auto; /* positioning tweak */
+  background:  url('/img/dragonSpritesMirror.png') no-repeat 0 0%;
+>>>>>>> 355b958e118dac7757bc8d777155a133adcd4802
   animation: sprite 1s steps(4) infinite;
 }
 
@@ -15,6 +43,7 @@
 }
 
 .fighter-sprite {
+<<<<<<< HEAD
   float: left;
   /* border: 1px solid purple; */
   width: 138px;
@@ -26,6 +55,16 @@
 
 
 
+=======
+  border: 1px solid purple;
+  width: 138px;
+  height: 138px;
+  margin: -5% auto 0 auto; /* positioning tweak */
+  background:  url('/FighterSpriteSheet.png') no-repeat 0 0%;
+  animation: sprite 1s steps(4) infinite;
+}
+
+>>>>>>> 355b958e118dac7757bc8d777155a133adcd4802
 @keyframes sprite {
   from { background-position: 0 0; }
   to { background-position: 0 100%; }
