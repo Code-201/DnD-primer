@@ -1,7 +1,7 @@
 
 .dragon-sprite {
   float: right;
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   width: 266px;
   height: 266px;
   margin: -5% auto 0 auto; /* positioning tweak */
@@ -16,7 +16,7 @@
 
 .fighter-sprite {
   float: left;
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   width: 138px;
   height: 138px;
   margin: -5% auto 0 auto; /* positioning tweak */

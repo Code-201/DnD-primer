@@ -4,6 +4,8 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgb(55, 58, 58);
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 p, li, button, input{
@@ -63,8 +65,8 @@ p, li, button, input{
 
 .imageDiv{
 
-  border-style: solid;
-  border-color: white;
+  /* border-style: solid; */
+  /* border-color: white; */
   border-width: 3px;
   width: 650px;
   height: 100px;

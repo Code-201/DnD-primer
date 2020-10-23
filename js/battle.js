@@ -50,7 +50,7 @@ function offWeGo() {
 //runs the dragons actions
 function dragonAttack() {
 
-  var dialogue = `Dragon Attacks!`;
+  var dialogue = 'Dragon Attacks!';
   var attackDamage = 0;
 
   //runs either dragon breath or bite
@@ -59,7 +59,7 @@ function dragonAttack() {
     //allows user to make a saving throw for half damage
     if (!saveThrow) {
       saveThrow = true;
-      dialogue += 'The dragon leans forward and opens his large toothy mouth. As the heat starts pooling around you, you realize he is preparing for a fiery breath attack! Make a DEXTERITY SAVING THROW to avoid some of the damage! (Roll a D20, and we will add your dexterity mod for you.)';
+      dialogue += ' The dragon leans forward and opens his large toothy mouth. As the heat starts pooling around you, you realize he is preparing for a fiery breath attack! Make a DEXTERITY SAVING THROW to avoid some of the damage! (Roll a D20, and we will add your dexterity mod for you.)';
       renderSaveThrowButton();
 
       //runs the attack after saving throw has been made

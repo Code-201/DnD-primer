@@ -1,7 +1,15 @@
 body{
+  max-width: 980px;
+  margin: 0 auto;
+}
 
-  background-image: url("../img/Background.png");
-
+#open-background-img{
+  z-index: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-repeat: no-repeat;
+  width: 100%;
 }
 
 p, li, button, input{
@@ -20,7 +28,7 @@ p, li, button, input{
 
 .statsStyle{
     width: 220px;
-    height: 270px;
+    height: auto;
     color: white;
     background-color: black;
     opacity: .8;
