@@ -1,0 +1,67 @@
+body{
+  color: white;
+  background-color: black;
+  margin: 0 auto;
+  max-width: 980px;
+  font-family: 'VT323', monospace;
+  font-size: 40px;
+  text-align: left;
+  font-weight: bold;
+}
+
+header{
+  margin-bottom: 50px;
+  background-color: black;
+  color: red;
+  font-size: 50px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 250px auto;
+  grid-row: auto auto;
+  border: 3px groove red;
+}
+
+#logo{
+  width: 250px;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+h1{
+  grid-column-start: 2;
+  grid-row-start: 1;
+  align-self: center;
+  justify-self: center;
+}
+
+#header2{
+  grid-column-start: 2;
+  grid-row-start: 2;
+  align-self: start;
+  justify-self: center;
+}
+
+#header3{
+  grid-column-start: 2;
+  grid-row-start: 2;
+  align-self: center;
+  justify-self: center;
+}
+
+img{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+input{
+  font-family: 'VT323', monospace;
+  font-size: 40px;
+  margin: 10px;
+  background-color: gold;
+}
+
+footer{
+  margin-top: 100px;
+}
