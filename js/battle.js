@@ -64,7 +64,7 @@ function dragonAttack() {
     //allows user to make a saving throw for half damage
     if (!saveThrow) {
       saveThrow = true;
-      scenarioStyling
+
       dialogue += ' The dragon leans forward and opens his large toothy mouth. As the heat starts pooling around you, you realize he is preparing for a fiery breath attack! Make a DEXTERITY SAVING THROW to avoid some of the damage! (Roll a D20, and we will add your dexterity mod for you.)';
 
       renderSaveThrowButton();
@@ -81,13 +81,13 @@ function dragonAttack() {
       //damage on failed saving throw:
       if (saveThrowValue < 12) {
         dragon.usedFireBreath = true;
-        dialogue += ` You fail your saving throw! He heaves his mighty frame, and spew out his mouth and nose pure fire from hell!  He deals ${attackDamage} to you!`;
+        dialogue += ` You fail your saving throw, bollucks!! He heaves his mighty frame, and spews out from his mouth and nose pure hell-fire!  He deals ${attackDamage} to you!`;
 
         //damage on successful saving throw:
       } else {
         dragon.usedFireBreath = true;
         attackDamage = Math.floor(attackDamage / 2);
-        dialogue += ` The fire blast blows around you but you dodge behind a rock at the last second and reduce some damage. He only hits you for ${attackDamage} damage.`;
+        dialogue += ` The fire blast blows around you, but you dodge behind a rock at the last second and reduce some damage. He only hits you for ${attackDamage} damage.`;
       }
       document.getElementById('saveThrowButtonContainer').innerHTML = '';
       buttonDisable('basicAttack', false);
@@ -98,13 +98,13 @@ function dragonAttack() {
     //Bite attack:
   } else {
     attackDamage = diceValue(6) + dragon.str;
-    dialogue += ` He lunges forward and wraps his maw around you frame and crunches you pancreas for ${attackDamage} point of damage!`;
+    dialogue += ` He lunges forward and wraps his maw around your frame and crunches your pancreas for ${attackDamage} of damage!`;
   }
 
   //checks if the user dodged and halves damage if they succeeded
   if (dodgeSuccess === true) {
     attackDamage = Math.floor(attackDamage / 2);
-    dialogue += `But you hid your pitiful self behind a rock and he only dealt ${attackDamage} of damage to you!`;
+    dialogue += ` But you hid your pitiful self with your garbage armor behind a rock and he only dealt ${attackDamage} of damage to you!  Making your armor MORE dented.`;
     dodgeSuccess = false;
   }
 
@@ -166,7 +166,7 @@ function basicAttack() {
     }
 
     // creates the explanation string with applicable values
-    var tutorial = `Ok!  You used your ${player.weaponName} on the ${dragon.name}!  You rolled a ${recentRoll} and added your +${statNumber} ${statName} modifier You did ${attackPoints} damage to ${dragon.name}!  Good Job!`;
+    var tutorial = `Blap!  Couldn't think of another verb.  You used your ${player.weaponName} on the ${dragon.name}!  You rolled a ${recentRoll} and added your ${statNumber} ${statName} modifier.  Aiming wildly and without any accuracy at all, you managed ${attackPoints} damage to the ${dragon.name}!`;
     dragonAttack();
   }
 
@@ -183,10 +183,10 @@ function cower() {
   var dialogue;
   console.log('Attempting to Cower');
   if (recentRoll >= 10) {
-    dialogue = `Good job putting your head in the sand!  When ${dragon.name} attacks next, you will receive half damage!`;
+    dialogue = `Good job putting your head in the sand!  That ALWAYS works with dragons.  When the ${dragon.name} attacks next, you will receive only half damage!`;
     dodgeSuccess = true;
   } else {
-    dialogue = `Awww.  Your to slow.  You can't cower in fear this time!`;
+    dialogue = `What did you expect? YOURE FIGHTING A DRAGON, you can't hide.  It lives on fear and self-doubt!  Maybe next time you can COWER, but not right now`;
   }
   document.getElementById('dynamic-dialogue').innerHTML = dialogue;
   document.getElementById('dragon-speak').innerHTML = '';

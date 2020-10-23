@@ -10,10 +10,9 @@ campaign.`;
 function buttonDisable(elementButton, isDisabled) {
   var buttonSwitch = document.getElementById(elementButton);
   buttonSwitch.disabled = isDisabled;
-}
 function setDisplayName() {
   if (player) {
-    custom_Title = `Master ${player.name}!  Good to see you returning! `;
+    custom_Title = `Ah! Master ${player.name}!  Good to see you returning! `;
     document.getElementById('saved-char').setAttribute('value', `I'll use ${player.name}`);
   } else {
     custom_Title = `Greetings Adventurer!`;

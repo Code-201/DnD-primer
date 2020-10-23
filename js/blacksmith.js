@@ -81,7 +81,7 @@ function diceRoll(sides) {
 //Renders dialogue for DM section
 var nextClick = 0;
 function renderDmSection() {
-  var dmDialogue = ['dia 0', 'dia 1', 'select armor', 'dia 3', 'armor aquisition strategy', 'dia 5'];
+  var dmDialogue = [`Allo Allo ${player.name}. What can I do for you this fine day?  I have a wide selection of mediocre and slightly below standard armament and cutlery.`, 'How about this beaver\'s helm?  Or this skunk shoe?  Or Or Or this!  An imported replica of a sloth sleeping.', 'Harry sees your confusion, "Ahh, here are two options of weaponry and armor.  Both Kits will increase you DAMAGE OUTPUT and ARMOR CLASS, but the LONG SWORD Kit will most beneficial if you have higher STR, and the  LONGBOW kit will benefit those with higher DEX', 'A fine choice squire!  That should last a few days for sure!', 'How would you like to pay for this gov\'ner?', `Going outside you meet up with the old man, "Well met Master ${player.name} I see you have a nice low level ${player.weaponName}, that should help you, because take a look.  Over there.  No, THERE!  Yep, it's a Dragon!  Nasty one too.Well, there you go, take care of that for us will you ? There's a good chap!  Off you go!  Pip pip!`];
   var scenario = document.getElementById('displayDmDialogue');
   scenario.textContent = dmDialogue[nextClick];
   nextClick++;
@@ -90,7 +90,7 @@ function renderDmSection() {
 //Renders dialogue for user section
 var nextNext = 0;
 function renderUserSection() {
-  var usersDialogue = ['user 0', 'user 1', 'select armor', 'user 3', 'armor aquisition strategy', 'user 5'];
+  var usersDialogue = ['You listen to Harry slightly bemused.  He seems really proud of his sub-standard equipment.', 'Wait? What!  This is an ARMOR and WEAPON shop, or at least is is SUPPOSED to be.  You tell Harry you just want something to damage things and something to help you survive', 'Not a lot of choice here, better pick one.', 'Looking at the dented equipment and the worn weaponry, you doubt it was a fine choice.', 'You are at an impasse.  You can try to STEAL it and run (SLEIGHT OF HAND and DEX play into this action), just buy the junk, or try to INTIMIDATE Harry into handing it over (INTIMIDATE and CHA play into this action).  ROLL A D20 and CHOOSE an ACTION', `A @#!$ing DRAGON!  ARE YOU SERIOUS!  With this cheap ${player.weaponName}!  By the gods!  Well, here we go!`];
   var userPrompt = document.getElementById('displayUserDialogue');
   userPrompt.textContent = usersDialogue[nextNext];
 
@@ -225,13 +225,13 @@ function handleSteal() {
   // if calulated > difficultyclass
   //disable steal and intimidate
   if (calculatedRoll < stealDifficultyClass) {
-    resultsContainer.textContent = 'You suck at stealing. Now you have to buy it.';
+    resultsContainer.textContent = 'Really?  There is ONE Door.  Just buy it.  I can\'t believe you.';
 
     document.getElementById('steal').removeEventListener('click', handleSteal);
     document.getElementById('intimidate').removeEventListener('click', handleIntimidate);
   } else {
     renderStatsSection();
-    resultsContainer.textContent = 'you stole it';
+    resultsContainer.textContent = 'Success you stole a pile of junk, aren\'t you happy.  Now get OUT of there!';
     nextButtonDisabled(false);
     renderStatsSection();
   }
@@ -247,13 +247,13 @@ function handleIntimidate() {
   var resultsContainer = document.getElementById('attemptResult');
 
   if (calculatedRoll < intimidateDifficultyClass) {
-    resultsContainer.textContent = 'You could not intimidate for it. Now you have to buy it';
+    resultsContainer.textContent = 'Harry just laughs at you.  He is TWICE your size';
 
     document.getElementById('steal').removeEventListener('click', handleSteal);
     document.getElementById('intimidate').removeEventListener('click', handleIntimidate);
   } else {
     renderStatsSection();
-    resultsContainer.textContent = 'you were able to intimidate them for it';
+    resultsContainer.textContent = 'Harry\'s eyes shift side to side, and quickly hands over the goods';
     nextButtonDisabled(false);
     renderStatsSection();
   }
@@ -265,7 +265,7 @@ function handleIntimidate() {
 function handleBuy() {
   player.equipment[0] = player.equipment[0] - 10;
   renderStatsSection();
-  document.getElementById('attemptResult').textContent = 'you bought the armor for 10 gold';
+  document.getElementById('attemptResult').textContent = 'You dig deep in your EQUIPMENT satchel and buy the kit for 10 GOLD';
   console.log(player.equipment[0]);
   nextButtonDisabled(false);
   renderStatsSection();
@@ -280,16 +280,6 @@ function nextButtonDisabled(isDisabled) {
     checkNext.disabled = false;
   }
 }
-
-// function stealButtonDisabled(isDisabled) {
-//   var stealAttempt = document.getElementById('stealContainer');
-//   if (isDisabled) {
-//     stealAttempt.disabled = true;
-
-//   } else {
-//     stealAttempt.disabled = false;
-//   }
-// }
 
 //function calls:
 renderStatsSection();
