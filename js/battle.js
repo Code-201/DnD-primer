@@ -32,7 +32,7 @@ function checkEndGame() {
     shutAllButtonsDown(true);
     parentElement.appendChild(endofgameButton);
 
-  //success case: sends player to next page
+    //success case: sends player to next page
   } else if (dragon.hitPoints <= 0) {
     console.log(`${player.name}, the battle has been consummated. You are victorious!`);
     endofgameButton.setAttribute('value', 'YOU WON!');
@@ -57,24 +57,24 @@ function dragonAttack() {
   if (!dragon.usedFireBreath) {
 
     //allows user to make a saving throw for half damage
-    if(!saveThrow){
+    if (!saveThrow) {
       saveThrow = true;
       dialogue += 'The dragon leans forward and opens his large toothy mouth. As the heat starts pooling around you, you realize he is preparing for a fiery breath attack! Make a DEXTERITY SAVING THROW to avoid some of the damage! (Roll a D20, and we will add your dexterity mod for you.)';
       renderSaveThrowButton();
 
-    //runs the attack after saving throw has been made
-    }else{
+      //runs the attack after saving throw has been made
+    } else {
       for (var i = 0; i < 2; i++) {
         attackDamage += diceValue(6);
       }
 
       //damage on failed saving throw:
-      if(saveThrowValue < 12){
+      if (saveThrowValue < 12) {
         dragon.usedFireBreath = true;
         dialogue += ` You fail your saving throw! He heaves his mighty frame, and spew out his mouth and nose pure fire from hell!  He deals ${attackDamage} to you!`;
 
-      //damage on successful saving throw:
-      }else{
+        //damage on successful saving throw:
+      } else {
         dragon.usedFireBreath = true;
         attackDamage = Math.floor(attackDamage / 2);
         dialogue += ` The fire blast blows around you but you dodge behind a rock at the last second and reduce some damage. He only hits you for ${attackDamage} damage.`;
@@ -82,7 +82,7 @@ function dragonAttack() {
       document.getElementById('saveThrowButtonContainer').innerHTML = '';
     }
 
-  //Bite attack:
+    //Bite attack:
   } else {
     attackDamage = diceValue(6) + dragon.str;
     dialogue += ` He lunges forward and wraps his maw around you frame and crunches you pancreas for ${attackDamage} point of damage!`;
@@ -101,7 +101,7 @@ function dragonAttack() {
 }
 
 //renders the saving throw button
-function renderSaveThrowButton(){
+function renderSaveThrowButton() {
   var saveThrowButton = document.createElement('input');
   saveThrowButton.setAttribute('value', 'Saving Throw');
   saveThrowButton.setAttribute('type', 'button');
@@ -110,7 +110,7 @@ function renderSaveThrowButton(){
 }
 
 //calculates rolled value of saving throw
-function handleSaveThrow(){
+function handleSaveThrow() {
   console.log('I live!');
   saveThrowValue = recentRoll + player.modArray[1];
   dragonAttack();
@@ -134,7 +134,7 @@ function basicAttack() {
     basicAttackTutorialRun = false;
     attackPoints = 0;
 
-  //runs the attack
+    //runs the attack
   } else {
     if (player.weaponName === 'Longbow') {
       statName = 'DEX';
@@ -148,7 +148,7 @@ function basicAttack() {
     }
 
     //sets damage to zero if the modifier would take the damage roll to a negative number
-    if(attackPoints < 0){
+    if (attackPoints < 0) {
       attackPoints = 0;
     }
 
@@ -185,6 +185,7 @@ function secondWind() {
 
   if (!usedSecondWind) {
     player.hitPoints += recentRoll + player.modArray[2];
+    if (player.hitPoints >= player.maxHitPoints) { player.hitPoints = player.maxHitPoints; }
     document.getElementById('dynamic-dialogue').innerHTML = `You received your second wind!  Your CON modifier: ${player.modArray[2]} +  your roll of ${recentRoll} gains raises your HP to ${player.hitPoints}`;
 
     document.getElementById('dragon-speak').innerHTML = '';

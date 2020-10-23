@@ -104,6 +104,7 @@ function renderUserSection() {
   }
   if (nextNext === 5) {
     document.getElementById('armorAcquisition').innerHTML = '';
+    document.getElementById('attemptResult').innerHTML = '';
   }
 
   if (nextNext === usersDialogue.length) {

@@ -10,7 +10,7 @@ var nextClicks = 0;
 var diceClicks = 0;
 var player = new Character('bob', 100);
 player.name = prompt('Hold On Good Person!  Before you embark on your grand adventure we need to know by what words we should address you!');
-var dialogArray = [`Hey there ${player.name}! This is the character creation page.  You look like a fighter, so we will assign you the class fighter! Cool, right? Ok, first thing is first.  These are the dice, go ahead and click \'NEXT\' and take some rolls!`, 'These are your stats, they will be the sum of three 10-sided dice rolls.  We will take the hard work out of it and sum it up for you.  So go ahead an roll for your initial stats', 'We are gonna set your Saving Throws.  We will set these up. Math Math Math.', 'We will set your skills, since are a fighter, you can eat INTIMIDATE some rotten tomatoes so we will add some to your INTIMIDATE skill.  Since you have trained and done lots of pushups, you have a heightened PERCEPTION, so we will add to that!.', 'Now you can choose your Race <span id="raceClass"></span>.  There are tons to choose from, but for this scenario you can choose ELF or HUMAN.  We have already determined you are a FIGHTER class. After you select your race, click \'NEXT\'', 'These are other attributes. Armor, Equipment.  Don\'t worry about Attack, we will get to that later', ' But I suppose you need some money, don\'t we all, so here is 100 gold!  Your\'re welcome!', `Ok! You\'re all set ${player.name}!  Adventure waits for no one!  It all begins with the first step, so let\' STEP to it!`];
+var dialogArray = [`Hey there ${player.name}! This is the character creation page.  You look like a fighter, so we will assign you the class fighter! Cool, right? Ok, first thing is first.  These are the dice, go ahead and click \'NEXT\' and take some rolls!`, 'These are your stats, they will be the sum of three 10-sided dice rolls.  We will take the hard work out of it and sum it up for you.  So go ahead an roll for your initial stats', 'We are gonna set your Saving Throws.  We will set these up. Math Math Math.', 'So now you have you initial Stats, we will determine you modifiers, and will set your HP.  Ok, now your skills, since are a fighter, you can INTIMIDATE some rotten tomatoes so we will add some to your INTIMIDATE skill.  Since you have trained and done a lot of pushups, you have a heightened PERCEPTION, so we will add to that too!.', 'Now you can choose your Race <span id="raceClass"></span>.  There are tons to choose from, but for this scenario you can choose ELF or HUMAN.  We have already determined you are a FIGHTER class. After you select your race, click \'NEXT\'', 'These are other attributes. Armor, Equipment.  Don\'t worry about Attack, we will get to that later', ' But I suppose you need some money, don\'t we all, so here is 100 gold!  Your\'re welcome!', `Ok! You\'re all set ${player.name}!  Adventure waits for no one!  It all begins with the first step, so let\' STEP to it!`];
 
 
 
@@ -127,7 +127,7 @@ function handleNext() {
   //0: function to handle statBuilding
   else if (nextClicks === 1) { setStats(); }
   //1: function setSavingThrows 
-  else if (nextClicks === 2) { player.modifierCalc(); displayDialog(2); setSavingThrows(); }
+  else if (nextClicks === 2) { player.modifierCalc(); displayDialog(2); setSavingThrows(); setHitPoints(); }
   //2: function setSkills (will be .includes with proficiency array.  If proficient skill = stat+2)
   else if (nextClicks === 3) { displayDialog(3); setSkills(); }
   // //3: function setRaceAndClass
@@ -171,8 +171,8 @@ function setSkills() {
   //TODO: update using a .includes to search the array for proficiencies to apply.
   var intimidate = document.getElementById('intimidate');
   var perception = document.getElementById('perception');
-  var calcIntimidate = player.statArray[5] + player.proficiencyBonus;
-  var calcPerception = player.statArray[4] + player.proficiencyBonus;
+  var calcIntimidate = player.modArray[5] + player.proficiencyBonus;
+  var calcPerception = player.modArray[4] + player.proficiencyBonus;
   intimidate.textContent = `Intimidate: ${calcIntimidate}`;
   perception.textContent = `Perception: ${calcPerception}`;
 
@@ -192,7 +192,7 @@ function setOtherAttributes() {
   updateStat('other-list', 1, player.modArray[1]);
   player.speed = 30;
   updateStat('other-list', 2, player.speed);
-  updateStat('other-list', 3, (10 + player.statArray[2]));
+  updateStat('other-list', 3, (player.hitPoints));
   updateStat('other-list', 4, player.proficiencyBonus);
 
 }
@@ -215,7 +215,7 @@ function setRaceAndClass() {
 function setStats() {
   nextButtonDisabled(true);
   doThreeRoll = true;
-  player.statArray[diceClicks] = diceRollNumber;
+  player.statArray[diceClicks] = diceRollNumber + 2;
   updateStat('stat-list', diceClicks, diceRollNumber);
   displayDialog(1);
 
@@ -259,7 +259,12 @@ function rollButtonDisabled(isDisabled) {
   }
 
 }
+function setHitPoints() {
+  debugger;
+  player.hitPoints = 10 + player.modArray[2];
+  player.maxHitPoints = player.hitPoints;
 
+}
 //Executable Code here :>
 ///TODO: create a prompt for user to enter thier Name, and store when creating the Character object
 
