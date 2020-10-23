@@ -13,6 +13,30 @@ p, li, button, input{
 
 }
 
+
+.instructions{
+
+  width: 900px;
+  /* height: 270px; */
+  color: white;
+  background-color: black;
+  opacity: .8;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-style: inset;
+  border-color: brown;
+  border-width: 10px;
+  padding: 10px;
+
+}
+
+.instructions p{
+
+  font-size: 20px;
+
+
+}
+
 .upperSection{
   margin: 0 auto;
   display: flex;
@@ -21,7 +45,7 @@ p, li, button, input{
 }
 
 .statsStyle{
-    width: 220px;
+    width: 170px;
     height: 270px;
     color: white;
     background-color: black;
@@ -36,15 +60,26 @@ p, li, button, input{
 
 }
 
+
+.imageDiv{
+
+  border-style: solid;
+  border-color: white;
+  border-width: 3px;
+  width: 650px;
+  height: 100px;
+  
+}
+
 .dmBoxStyle{
     
   /* top: 100px;
   left: 400px; */
   float: right;
-  width: 500px;
-  height: 250px;
+  width: 650px;
+  height: 270px;
   margin-top: 30px;
-  margin-left: 20px;
+  margin-left: 30px;
   color: white;
   background-color: black;
   opacity: .8;
@@ -52,6 +87,13 @@ p, li, button, input{
   border-color: brown;
   border-width: 10px;
   padding: 10px;
+
+}
+
+
+.dmBoxStyle p{
+
+  font-size: 20px;
 
 }
 
@@ -65,13 +107,13 @@ p, li, button, input{
 
 .diceBoxStyle{
 
-  width: 220px;
-  height: 80px;
+  width: 290px;
+  height: 55px;
   color: white;
   background-color: black;
   opacity: .8;
-  margin-top: 60px;
-  margin-left: 30px;
+  margin-top: 20px;
+  margin-left: 10px;
   border-style: inset;
   border-color: brown;
   border-width: 10px;
@@ -91,16 +133,16 @@ button{
 
 .userBoxStyle{
 
-  width: 500px;
-  height: 200px;
+  width: 420px;
+  height: 70px;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 90px;
   color: white;
   background-color: black;
   opacity: .8;
   border-style: inset;
   border-color: brown;
   border-width: 10px;
-  padding: 10px;
+  padding: 2px;
 
 }
