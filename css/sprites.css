@@ -1,0 +1,32 @@
+
+.dragon-sprite {
+  float: right;
+  border: 1px solid purple;
+  width: 266px;
+  height: 266px;
+  margin: -5% auto 0 auto; /* positioning tweak */
+  background:  url('../img/dragonSpritesMirror.png') no-repeat 0 0%;
+  animation: sprite 1s steps(4) infinite;
+}
+
+@keyframes sprite {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+
+.fighter-sprite {
+  float: left;
+  border: 1px solid purple;
+  width: 138px;
+  height: 138px;
+  margin: -5% auto 0 auto; /* positioning tweak */
+  background:  url('../img/FighterSpriteSheet.png') no-repeat 0 0%;
+  animation: sprite 1s steps(4) infinite;
+}
+
+
+
+@keyframes sprite {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
