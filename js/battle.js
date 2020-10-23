@@ -15,7 +15,7 @@ var saveThrowValue = 0;
 
 // checks to see if the battle is over moves to next page
 function checkEndGame() {
-
+  debugger
   //checks for health at zero
   if (player.hitPoints <= 0 || dragon.hitPoints <= 0) {
     var parentElement = document.getElementById('dmBox');
@@ -26,24 +26,29 @@ function checkEndGame() {
 
   //fail case: sends player to next page
   if (player.hitPoints <= 0) {
+    debugger
     console.log('The Battle has Been Lost!');
     inBattle = false;
     endofgameButton.setAttribute('value', 'YOU FAILED');
     shutAllButtonsDown(true);
     parentElement.appendChild(endofgameButton);
+    player.didWin = false;
 
     //success case: sends player to next page
   } else if (dragon.hitPoints <= 0) {
+    debugger;
     console.log(`${player.name}, the battle has been consummated. You are victorious!`);
     endofgameButton.setAttribute('value', 'YOU WON!');
     inBattle = false;
     shutAllButtonsDown(true);
     parentElement.appendChild(endofgameButton);
+    player.didWin = true;
   }
 }
 
 //sends player to next page
 function offWeGo() {
+  saveCharacter(player);
   window.location.href = '../html/results.html';
 }
 
@@ -60,7 +65,11 @@ function dragonAttack() {
     if (!saveThrow) {
       saveThrow = true;
       dialogue += 'The dragon leans forward and opens his large toothy mouth. As the heat starts pooling around you, you realize he is preparing for a fiery breath attack! Make a DEXTERITY SAVING THROW to avoid some of the damage! (Roll a D20, and we will add your dexterity mod for you.)';
+
       renderSaveThrowButton();
+      buttonDisable('basicAttack', true);
+      buttonDisable('secondWind', true);
+      buttonDisable('dodge', true);
 
       //runs the attack after saving throw has been made
     } else {
@@ -80,6 +89,9 @@ function dragonAttack() {
         dialogue += ` The fire blast blows around you but you dodge behind a rock at the last second and reduce some damage. He only hits you for ${attackDamage} damage.`;
       }
       document.getElementById('saveThrowButtonContainer').innerHTML = '';
+      buttonDisable('basicAttack', false);
+      buttonDisable('secondWind', false);
+      buttonDisable('dodge', false);
     }
 
     //Bite attack:
@@ -111,7 +123,7 @@ function renderSaveThrowButton() {
 
 //calculates rolled value of saving throw
 function handleSaveThrow() {
-  console.log('I live!');
+
   saveThrowValue = recentRoll + player.modArray[1];
   dragonAttack();
 }
