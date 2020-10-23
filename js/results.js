@@ -86,7 +86,7 @@ function generateImage(didWin) {
   if (didWin) {
     imgElement.setAttribute('src', '');
   } else {
-    imgElement.setAttribute('src', '../img/loss-image.jpg');
+    imgElement.setAttribute('src', '');
   }
   parentImageElement.appendChild(imgElement);
 }
