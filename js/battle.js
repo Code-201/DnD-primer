@@ -33,6 +33,8 @@ function checkEndGame() {
     shutAllButtonsDown(true);
     parentElement.appendChild(endofgameButton);
     player.didWin = false;
+    player.hitPoints = player.maxHitPoints;
+
 
     //success case: sends player to next page
   } else if (dragon.hitPoints <= 0) {
@@ -43,6 +45,7 @@ function checkEndGame() {
     shutAllButtonsDown(true);
     parentElement.appendChild(endofgameButton);
     player.didWin = true;
+    player.hitPoints = player.maxHitPoints;
   }
 }
 

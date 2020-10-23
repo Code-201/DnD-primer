@@ -10,6 +10,7 @@ campaign.`;
 function buttonDisable(elementButton, isDisabled) {
   var buttonSwitch = document.getElementById(elementButton);
   buttonSwitch.disabled = isDisabled;
+}
 function setDisplayName() {
   if (player) {
     custom_Title = `Ah! Master ${player.name}!  Good to see you returning! `;
