@@ -19,7 +19,7 @@ body{
   top: 15%;
   left: 25%;
   background-repeat: no-repeat;
-  /* background-size: contain; */
+  background-size: contain;
   width: 50%;
 }
 #table-top{
@@ -29,8 +29,8 @@ body{
   top: 0px;
   left: 0px;
   background-repeat: no-repeat;
-  /* background-size: contain; */
-  background-size: cover;
+  background-size: contain;
+  /* background-size: cover; */
   width: 100%;
 }
 
@@ -61,7 +61,7 @@ header{
   height:40px; 
   position: absolute;
   top:150px; 
-  left:55%; 
+  left:49.2%; 
   z-index:2;
   border: 3px groove red;
   font-size: 20px;
