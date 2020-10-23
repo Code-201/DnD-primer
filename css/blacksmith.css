@@ -94,7 +94,7 @@ button{
 .userBoxStyle{
 
   width: 500px;
-  height: 200px;
+  height: 330px;
   margin-top: 20px;
   margin-left: 20px;
   color: white;
@@ -119,5 +119,14 @@ width: 200px;
 
   margin: 10px 10px 5px 40px;
   width: 100px;
+
+}
+
+
+footer{
+
+  margin: 0 auto;
+  width: 150px;
+  color: white;
 
 }

@@ -64,7 +64,7 @@ function returnHomeButton() {
 function returnToBattle() {
   var returnToBattle = document.createElement('input');
   returnToBattle.setAttribute('type', 'button');
-  returnToBattle.setAttribute('value', 'Reurn to Battle');
+  returnToBattle.setAttribute('value', 'Return to Battle');
   returnToBattle.setAttribute('onclick', 'handleReturnToBattle()');
   parentNavLinksElement.appendChild(returnToBattle);
 
@@ -77,16 +77,16 @@ function handleReturnHome() {
   window.location.href = '../index.html';
 }
 function handleReturnToBattle() {
-  window.location.href = '../js/battle.html';
+  window.location.href = '../html/battle.html';
 }
 
 function generateImage(didWin) {
   var imgElement = document.createElement('img');
 
   if (didWin) {
-    imgElement.setAttribute('src', 'https://kirby.nintendo.com/assets/img/kirby-blast.jpg');
+    imgElement.setAttribute('src', '');
   } else {
-    imgElement.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/en/5/52/Star_Fox_SNES.jpg');
+    imgElement.setAttribute('src', '../img/loss-image.jpg');
   }
   parentImageElement.appendChild(imgElement);
 }
